@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Buddy-Podcasts </title>
+    <title>Book Buddy -careers</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/bookbuddy logo.JPG">
     <!-- fontawesome 6.4.2 -->
     <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
@@ -20,6 +20,170 @@
     <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
     <!-- custom style css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Wrapper to hold the form and center it on the page */
+        .joinUs-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* This ensures it centers vertically within the viewport */
+            padding: 20px;
+            box-sizing: border-box;
+            /* Includes padding in the total width */
+        }
+
+        /* General form styling */
+        .joinUs-form {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            /* Increase base font size for better readability */
+            font-size: 1.1rem;
+        }
+
+        .joinUs-form .heading-title {
+            text-align: center;
+            color: #7d0a0a;
+            margin-bottom: 10px;
+        }
+
+        /* Form field layout */
+        .joinUs-form .form-inner {
+           display: flex; /* Change from grid to flex */
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+        }
+
+        .joinUs-form .single-input {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .joinUs-form .message {
+            grid-column: 1 / -1;
+        }
+
+        /* Input and label styling */
+        .joinUs-form .form-label {
+            font-weight: 500;
+            color: #555;
+            font-size: 1.8rem;
+        }
+
+        .joinUs-form .text-danger {
+            color: #e74c3c;
+        }
+
+        .joinUs-form .form-control,
+        .joinUs-form .form-select,
+        .joinUs-form .form-check-label {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .joinUs-form .form-control,
+        .joinUs-form .form-select,
+        .joinUs-form textarea.form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            color: #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .joinUs-form .form-control:focus,
+        .joinUs-form .form-select:focus,
+        .joinUs-form textarea.form-control:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        .joinUs-form textarea.form-control {
+            resize: vertical;
+        }
+
+        /* Commitment Type Radio Buttons */
+        .joinUs-form .single-input>div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .joinUs-form .form-check {
+            display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+
+           
+        }
+
+        .joinUs-form .form-check-input {
+            margin-right: 8px;
+            
+        }
+
+        .joinUs-form .form-check-input[type="checkbox"] {
+            margin-top: 4px;
+            min-width: 20px;
+            min-height: 20px;
+        }
+
+        .joinUs-form .form-check-label {
+            color: #171616;
+            line-height: 1.5;
+            font-size: 1.5rem;
+        }
+
+        /* Submit Button */
+        .joinUs-form .form-btn {     
+   display: flex;
+    justify-content: center; /* This centers the button horizontally */
+    align-items: center;
+    margin-top: 20px; /* Adds space above the button */
+}
+        
+
+        .joinUs-form .rts-btn.btn-primary {
+            color: #100f0fe0;
+            padding: 15px 30px;
+            font-size: 2rem;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .joinUs-form .rts-btn.btn-primary:hover {
+
+            transform: translateY(-2px);
+        }
+
+        /* Success Message */
+        .success-message {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .joinUs-form .form-inner {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -33,23 +197,34 @@
                     <div class="col-lg-12">
                         <div class="header-top-one">
                             <div class="left-information">
-                                <a href="mailto:someone@example.com" class="email"><i class="fa-light fa-envelope"></i>bookbuddy2023@gmail.com</a>
-                                <a href="tel:+4733378901" class="email"><i class="fa-light fa-phone"></i>+91 9080759312</a>
+                                <a href="mailto:someone@example.com" class="email"><i
+                                        class="fa-light fa-envelope"></i>bookbuddy2023@gmail.com</a>
+                                <a href="tel:+4733378901" class="email"><i class="fa-light fa-phone"></i>+91
+                                    9080759312</a>
                             </div>
                             <div class="right-information">
                                 <ul class="social-area">
                                     <li>
                                         <a href="https://www.facebook.com/share/16xjYGHw5z/">
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M14.6688 0.5H1.33125C1.11129 0.501635 0.900811 0.589738 0.745275 0.745275C0.589738 0.900811 0.501635 1.11129 0.5 1.33125V14.6688C0.501635 14.8887 0.589738 15.0992 0.745275 15.2547C0.900811 15.4103 1.11129 15.4984 1.33125 15.5H8.5125V9.7H6.5625V7.43125H8.5125V5.7625C8.5125 3.825 9.69375 2.76875 11.4312 2.76875C12.0125 2.76875 12.5938 2.76875 13.175 2.85625V4.875H11.9813C11.0375 4.875 10.8562 5.325 10.8562 5.98125V7.425H13.1063L12.8125 9.69375H10.8562V15.5H14.6688C14.8887 15.4984 15.0992 15.4103 15.2547 15.2547C15.4103 15.0992 15.4984 14.8887 15.5 14.6688V1.33125C15.4984 1.11129 15.4103 0.900811 15.2547 0.745275C15.0992 0.589738 14.8887 0.501635 14.6688 0.5V0.5Z" fill="white" />
-                                                <path d="M14.6688 0.5H1.33125C1.11129 0.501635 0.900811 0.589738 0.745275 0.745275C0.589738 0.900811 0.501635 1.11129 0.5 1.33125V14.6688C0.501635 14.8887 0.589738 15.0992 0.745275 15.2547C0.900811 15.4103 1.11129 15.4984 1.33125 15.5H8.5125V9.7H6.5625V7.43125H8.5125V5.7625C8.5125 3.825 9.69375 2.76875 11.4312 2.76875C12.0125 2.76875 12.5938 2.76875 13.175 2.85625V4.875H11.9813C11.0375 4.875 10.8562 5.325 10.8562 5.98125V7.425H13.1063L12.8125 9.69375H10.8562V15.5H14.6688C14.8887 15.4984 15.0992 15.4103 15.2547 15.2547C15.4103 15.0992 15.4984 14.8887 15.5 14.6688V1.33125C15.4984 1.11129 15.4103 0.900811 15.2547 0.745275C15.0992 0.589738 14.8887 0.501635 14.6688 0.5V0.5Z" fill="white" />
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M14.6688 0.5H1.33125C1.11129 0.501635 0.900811 0.589738 0.745275 0.745275C0.589738 0.900811 0.501635 1.11129 0.5 1.33125V14.6688C0.501635 14.8887 0.589738 15.0992 0.745275 15.2547C0.900811 15.4103 1.11129 15.4984 1.33125 15.5H8.5125V9.7H6.5625V7.43125H8.5125V5.7625C8.5125 3.825 9.69375 2.76875 11.4312 2.76875C12.0125 2.76875 12.5938 2.76875 13.175 2.85625V4.875H11.9813C11.0375 4.875 10.8562 5.325 10.8562 5.98125V7.425H13.1063L12.8125 9.69375H10.8562V15.5H14.6688C14.8887 15.4984 15.0992 15.4103 15.2547 15.2547C15.4103 15.0992 15.4984 14.8887 15.5 14.6688V1.33125C15.4984 1.11129 15.4103 0.900811 15.2547 0.745275C15.0992 0.589738 14.8887 0.501635 14.6688 0.5V0.5Z"
+                                                    fill="white" />
+                                                <path
+                                                    d="M14.6688 0.5H1.33125C1.11129 0.501635 0.900811 0.589738 0.745275 0.745275C0.589738 0.900811 0.501635 1.11129 0.5 1.33125V14.6688C0.501635 14.8887 0.589738 15.0992 0.745275 15.2547C0.900811 15.4103 1.11129 15.4984 1.33125 15.5H8.5125V9.7H6.5625V7.43125H8.5125V5.7625C8.5125 3.825 9.69375 2.76875 11.4312 2.76875C12.0125 2.76875 12.5938 2.76875 13.175 2.85625V4.875H11.9813C11.0375 4.875 10.8562 5.325 10.8562 5.98125V7.425H13.1063L12.8125 9.69375H10.8562V15.5H14.6688C14.8887 15.4984 15.0992 15.4103 15.2547 15.2547C15.4103 15.0992 15.4984 14.8887 15.5 14.6688V1.33125C15.4984 1.11129 15.4103 0.900811 15.2547 0.745275C15.0992 0.589738 14.8887 0.501635 14.6688 0.5V0.5Z"
+                                                    fill="white" />
                                             </svg>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/bookbuddylendinglibrary?igsh=aGdxMTd6MGN2MWZn">
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0306 1.89513C10.2398 1.859 10.0026 1.85137 8 1.85137V1.85131C5.99744 1.85131 5.76019 1.859 4.96938 1.89506C4.49378 1.90072 4.02269 1.98808 3.57669 2.15331C3.25324 2.27812 2.9595 2.46925 2.71436 2.7144C2.46922 2.95955 2.27811 3.2533 2.15331 3.57675C1.98808 4.02276 1.90072 4.49384 1.89506 4.96944C1.85894 5.76025 1.85131 5.9975 1.85131 8.00006C1.85131 10.0026 1.859 10.2399 1.89506 11.0307C1.90072 11.5063 1.98808 11.9774 2.15331 12.4234C2.27812 12.7468 2.46923 13.0405 2.71437 13.2857C2.95951 13.5308 3.25325 13.7219 3.57669 13.8467C4.02269 14.012 4.49378 14.0993 4.96938 14.105C5.76013 14.1411 5.99725 14.1487 8 14.1487C10.0028 14.1487 10.2399 14.1411 11.0306 14.105C11.5062 14.0993 11.9773 14.012 12.4233 13.8467C12.7467 13.7219 13.0405 13.5308 13.2856 13.2857C13.5308 13.0405 13.7219 12.7468 13.8467 12.4234C14.0119 11.9774 14.0993 11.5063 14.1049 11.0307C14.1411 10.2399 14.1487 10.0026 14.1487 8.00006C14.1487 5.9975 14.141 5.76025 14.1049 4.96944C14.0993 4.49384 14.0119 4.02276 13.8467 3.57675C13.7219 3.25331 13.5308 2.95958 13.2856 2.71444C13.0405 2.4693 12.7467 2.27818 12.4233 2.15338C11.9773 1.98814 11.5062 1.90079 11.0306 1.89513ZM4.90775 0.545125C5.70769 0.508625 5.96312 0.5 8 0.5C10.0369 0.5 10.2923 0.508625 11.0919 0.545438C11.7141 0.557899 12.3297 0.675778 12.9125 0.894062C13.4108 1.08672 13.8633 1.38135 14.2411 1.75907C14.6188 2.13679 14.9135 2.58927 15.1063 3.0875C15.3245 3.67018 15.4424 4.28566 15.4549 4.90775C15.4914 5.70769 15.5 5.96312 15.5 8C15.5 10.0369 15.4914 10.2923 15.4552 11.0919C15.4427 11.7141 15.3248 12.3297 15.1066 12.9125C14.9139 13.4108 14.6192 13.8633 14.2414 14.2411C13.8636 14.6189 13.4111 14.9136 12.9128 15.1063C12.33 15.3245 11.7144 15.4424 11.0922 15.4549C10.2923 15.4914 10.0369 15.5 8 15.5C5.96312 15.5 5.70769 15.4914 4.90806 15.4552C4.28586 15.4427 3.67028 15.3249 3.0875 15.1066C2.58921 14.9139 2.13667 14.6192 1.7589 14.2414C1.38112 13.8636 1.08645 13.4111 0.89375 12.9128C0.675466 12.33 0.557586 11.7144 0.545125 11.0922C0.508625 10.2923 0.5 10.0369 0.5 8C0.5 5.96312 0.508625 5.70769 0.545125 4.90806C0.557579 4.28586 0.675459 3.67028 0.89375 3.0875C1.08645 2.58921 1.38112 2.13667 1.7589 1.7589C2.13667 1.38112 2.58921 1.08645 3.0875 0.89375C3.67018 0.675493 4.28566 0.557614 4.90775 0.545125ZM12.0035 4.89644C12.5005 4.89644 12.9035 4.49349 12.9035 3.99644C12.9035 3.49938 12.5005 3.09644 12.0035 3.09644C11.5064 3.09644 11.1035 3.49938 11.1035 3.99644C11.1035 4.49349 11.5064 4.89644 12.0035 4.89644ZM7.99998 4.14868C7.23825 4.14868 6.49363 4.37456 5.86027 4.79776C5.22692 5.22095 4.73328 5.82245 4.44178 6.5262C4.15027 7.22995 4.074 8.00433 4.22261 8.75142C4.37122 9.49852 4.73802 10.1848 5.27665 10.7234C5.81527 11.262 6.50152 11.6288 7.24862 11.7774C7.99571 11.926 8.77009 11.8498 9.47384 11.5583C10.1776 11.2668 10.7791 10.7731 11.2023 10.1398C11.6255 9.50641 11.8514 8.76179 11.8514 8.00006C11.8514 6.97861 11.4456 5.999 10.7233 5.27672C10.001 4.55445 9.02143 4.14868 7.99998 4.14868ZM7.99998 10.5001C7.50553 10.5001 7.02218 10.3534 6.61106 10.0787C6.19993 9.80403 5.8795 9.41358 5.69028 8.95677C5.50106 8.49995 5.45156 7.99728 5.54802 7.51233C5.64448 7.02738 5.88258 6.58192 6.23221 6.23229C6.58185 5.88266 7.0273 5.64456 7.51226 5.54809C7.99721 5.45163 8.49988 5.50114 8.95669 5.69036C9.41351 5.87958 9.80395 6.20001 10.0787 6.61113C10.3534 7.02225 10.5 7.5056 10.5 8.00006C10.5 8.6631 10.2366 9.29898 9.76775 9.76782C9.29891 10.2367 8.66302 10.5001 7.99998 10.5001Z" fill="white" />
+                                        <a
+                                            href="https://www.instagram.com/bookbuddylendinglibrary?igsh=aGdxMTd6MGN2MWZn">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M11.0306 1.89513C10.2398 1.859 10.0026 1.85137 8 1.85137V1.85131C5.99744 1.85131 5.76019 1.859 4.96938 1.89506C4.49378 1.90072 4.02269 1.98808 3.57669 2.15331C3.25324 2.27812 2.9595 2.46925 2.71436 2.7144C2.46922 2.95955 2.27811 3.2533 2.15331 3.57675C1.98808 4.02276 1.90072 4.49384 1.89506 4.96944C1.85894 5.76025 1.85131 5.9975 1.85131 8.00006C1.85131 10.0026 1.859 10.2399 1.89506 11.0307C1.90072 11.5063 1.98808 11.9774 2.15331 12.4234C2.27812 12.7468 2.46923 13.0405 2.71437 13.2857C2.95951 13.5308 3.25325 13.7219 3.57669 13.8467C4.02269 14.012 4.49378 14.0993 4.96938 14.105C5.76013 14.1411 5.99725 14.1487 8 14.1487C10.0028 14.1487 10.2399 14.1411 11.0306 14.105C11.5062 14.0993 11.9773 14.012 12.4233 13.8467C12.7467 13.7219 13.0405 13.5308 13.2856 13.2857C13.5308 13.0405 13.7219 12.7468 13.8467 12.4234C14.0119 11.9774 14.0993 11.5063 14.1049 11.0307C14.1411 10.2399 14.1487 10.0026 14.1487 8.00006C14.1487 5.9975 14.141 5.76025 14.1049 4.96944C14.0993 4.49384 14.0119 4.02276 13.8467 3.57675C13.7219 3.25331 13.5308 2.95958 13.2856 2.71444C13.0405 2.4693 12.7467 2.27818 12.4233 2.15338C11.9773 1.98814 11.5062 1.90079 11.0306 1.89513ZM4.90775 0.545125C5.70769 0.508625 5.96312 0.5 8 0.5C10.0369 0.5 10.2923 0.508625 11.0919 0.545438C11.7141 0.557899 12.3297 0.675778 12.9125 0.894062C13.4108 1.08672 13.8633 1.38135 14.2411 1.75907C14.6188 2.13679 14.9135 2.58927 15.1063 3.0875C15.3245 3.67018 15.4424 4.28566 15.4549 4.90775C15.4914 5.70769 15.5 5.96312 15.5 8C15.5 10.0369 15.4914 10.2923 15.4552 11.0919C15.4427 11.7141 15.3248 12.3297 15.1066 12.9125C14.9139 13.4108 14.6192 13.8633 14.2414 14.2411C13.8636 14.6189 13.4111 14.9136 12.9128 15.1063C12.33 15.3245 11.7144 15.4424 11.0922 15.4549C10.2923 15.4914 10.0369 15.5 8 15.5C5.96312 15.5 5.70769 15.4914 4.90806 15.4552C4.28586 15.4427 3.67028 15.3249 3.0875 15.1066C2.58921 14.9139 2.13667 14.6192 1.7589 14.2414C1.38112 13.8636 1.08645 13.4111 0.89375 12.9128C0.675466 12.33 0.557586 11.7144 0.545125 11.0922C0.508625 10.2923 0.5 10.0369 0.5 8C0.5 5.96312 0.508625 5.70769 0.545125 4.90806C0.557579 4.28586 0.675459 3.67028 0.89375 3.0875C1.08645 2.58921 1.38112 2.13667 1.7589 1.7589C2.13667 1.38112 2.58921 1.08645 3.0875 0.89375C3.67018 0.675493 4.28566 0.557614 4.90775 0.545125ZM12.0035 4.89644C12.5005 4.89644 12.9035 4.49349 12.9035 3.99644C12.9035 3.49938 12.5005 3.09644 12.0035 3.09644C11.5064 3.09644 11.1035 3.49938 11.1035 3.99644C11.1035 4.49349 11.5064 4.89644 12.0035 4.89644ZM7.99998 4.14868C7.23825 4.14868 6.49363 4.37456 5.86027 4.79776C5.22692 5.22095 4.73328 5.82245 4.44178 6.5262C4.15027 7.22995 4.074 8.00433 4.22261 8.75142C4.37122 9.49852 4.73802 10.1848 5.27665 10.7234C5.81527 11.262 6.50152 11.6288 7.24862 11.7774C7.99571 11.926 8.77009 11.8498 9.47384 11.5583C10.1776 11.2668 10.7791 10.7731 11.2023 10.1398C11.6255 9.50641 11.8514 8.76179 11.8514 8.00006C11.8514 6.97861 11.4456 5.999 10.7233 5.27672C10.001 4.55445 9.02143 4.14868 7.99998 4.14868ZM7.99998 10.5001C7.50553 10.5001 7.02218 10.3534 6.61106 10.0787C6.19993 9.80403 5.8795 9.41358 5.69028 8.95677C5.50106 8.49995 5.45156 7.99728 5.54802 7.51233C5.64448 7.02738 5.88258 6.58192 6.23221 6.23229C6.58185 5.88266 7.0273 5.64456 7.51226 5.54809C7.99721 5.45163 8.49988 5.50114 8.95669 5.69036C9.41351 5.87958 9.80395 6.20001 10.0787 6.61113C10.3534 7.02225 10.5 7.5056 10.5 8.00006C10.5 8.6631 10.2366 9.29898 9.76775 9.76782C9.29891 10.2367 8.66302 10.5001 7.99998 10.5001Z"
+                                                    fill="white" />
                                             </svg>
                                         </a>
                                     </li>
@@ -125,8 +300,8 @@
                                         <!--<li><a href="team.html">Team</a></li>
                                         <li><a href="team-details.html">Team Details</a></li>-->
                                         <li><a href="event.html">Event</a></li>
-                                        <!--<li><a href="event-details.html">Event Details</a></li>
-                                        <li><a href="program-details.html">Program Details</a></li>
+                                        <li><a href="event-details.html">Event Details</a></li>
+                                        <!--<li><a href="program-details.html">Program Details</a></li>
                                         <li><a href="pricing.html">Pricing</a></li>
                                         <li><a href="pricing-two.html">Pricing Two</a></li>-->
                                     </ul>
@@ -164,7 +339,8 @@
                             <a href="registration.html" class="rts-btn btn-primary">Contact Us</a>
                         </div>
                         <div class="menu-btn" id="menu-btn">
-                            <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="20" height="16" viewBox="0 0 20 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <rect y="14" width="20" height="2" fill="#1F1F25"></rect>
                                 <rect y="7" width="20" height="2" fill="#1F1F25"></rect>
                                 <rect width="20" height="2" fill="#1F1F25"></rect>
@@ -177,6 +353,8 @@
     </header>
     <!-- header style end -->
     <!-- header style end -->
+    <!-- Bread-Crumb style -->
+
     <!-- bread crumb area -->
     <div class="rts-breadcrumb-area rts-section-gap bg_image">
         <div class="container">
@@ -186,184 +364,124 @@
                         <div class="pagination-wrapper">
                             <a href="index.html">Home</a>
                             <i class="fa-regular fa-chevron-right"></i>
-                            <a class="active" href="Instructor.html">Podcasts</a>
+                            <a class="active" href="careers.html">Join Our Team</a>
                         </div>
                         <!-- breadcrumb pagination area -->
-                        <h2 class="title">Podcasts</h2>
+                        <h2 class="title">Express Your Interest</h2>
                         <!-- breadcrumb pagination area end -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- bread crumb area end -->
+    <!-- bread crumb area end 
+     <div class="col-lg-7">-->
+    <div class="joinUs-wrapper">
+        <form action="#" class="joinUs-form">
+            <h2 class="heading-title">Join Our Team</h2>
+            <h5>We're always looking for passionate individuals to join our mission. Tell us how you'd like to
+                contribute!</h5>
+            <div class="form-inner">
+                <div class="single-input">
+                    <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="firstName" placeholder="Your First Name" required>
+                </div>
+                <div class="single-input">
+                    <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="lastName" placeholder="Your Last Name" required>
+                </div>
+                <div class="single-input">
+                    <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="single-input">
+                    <label for="number" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                    <input type="tel" class="form-control" name="number" placeholder="Phone Number" required>
+                </div>
+                <div class="single-input">
+            <label class="form-label d-block">Commitment Type <span class="text-danger">*</span></label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="commitmentType" id="fullTime" value="fullTime" required>
+                    <label class="form-check-label" for="fullTime">Full-time</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="commitmentType" id="partTime" value="partTime">
+                    <label class="form-check-label" for="partTime">Part-time</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="commitmentType" id="volunteer" value="volunteer">
+                    <label class="form-check-label" for="volunteer">Volunteer</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="commitmentType" id="intern" value="intern">
+                    <label class="form-check-label" for="intern">Intern</label>
+                </div>
+        </div> <div class="single-input">
+            <label for="roleInterest" class="form-label">Role Interest <span class="text-danger">*</span></label>
+            <select class="form-select" id="roleInterest" name="roleInterest" required>
+                <option selected disabled value="">Select a role...</option>
+                <option value="instructor">Instructor</option>
+                <option value="contentDeveloper">Content Developer</option>
+                <option value="brandPartner">Brand Partner</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+                <div class="single-input">
+                    <label for="areaOfExpertise" class="form-label">Area(s) of Expertise</label>
+                    <input type="text" class="form-control" id="areaOfExpertise" name="areaOfExpertise"
+                        placeholder="e.g., Math, Science, Creative Writing, Video Production">
+                </div>
+                <div class="single-input">
+                    <label for="yearsOfExperience" class="form-label">Years of Relevant Experience</label>
+                    <input type="number" class="form-control" id="yearsOfExperience" name="yearsOfExperience" min="0"
+                        placeholder="e.g., 2">
+                </div>
 
+                <div class="single-input">
+                    <label for="portfolioUrl" class="form-label">Portfolio/Personal Website URL</label>
+                    <input type="url" class="form-control" id="portfolioUrl" name="portfolioUrl"
+                        placeholder="https://yourportfolio.com">
+                </div>
 
-    <!-- rts blog area start -->
-    <div class="rts-section-gap rts-blog-area">
-        <div class="container pb--130">
-            <div class="row g-5 mt--20">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-style-one">
-                        <a href="blog-details.html" class="thumbnail">
-                            <img src="assets/images/blog/blog-01.jpg" alt="blog">
-                        </a>
-                        <div class="blog-top-area">
-                            <div class="single">
-                                <i class="fa-light fa-calendar-days"></i>
-                                <p>October 26, 2023</p>
-                            </div>
-                            <div class="single">
-                                <i class="fa-light fa-user"></i>
-                                <p>Jon Adam</p>
-                            </div>
-                        </div>
-                        <a href="blog-details.html">
-                            <h5 class="title">How to spark passion-led,
-                                interest-based creativity.</h5>
-                        </a>
-                        <div class="tags-area">
-                            <span>Language</span>
-                        </div>
-                    </div>
+                <div class="single-input message">
+                    <label for="videoLink" class="form-label">Link to a video sample (e.g., teaching demo, content reel)
+                        <small class="text-muted">(Optional)</small></label>
+                    <input type="url" class="form-control" id="videoLink" name="videoLink"
+                        placeholder="https://youtube.com/your-video">
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-style-one">
-                        <a href="blog-details.html" class="thumbnail">
-                            <img src="assets/images/blog/blog-02.jpg" alt="blog">
-                        </a>
-                        <div class="blog-top-area">
-                            <div class="single">
-                                <i class="fa-light fa-calendar-days"></i>
-                                <p>October 26, 2023</p>
-                            </div>
-                            <div class="single">
-                                <i class="fa-light fa-user"></i>
-                                <p>Jon Adam</p>
-                            </div>
-                        </div>
-                        <a href="blog-details.html">
-                            <h5 class="title">Ways to Create A Montessori
-                                Home Environment</h5>
-                        </a>
-                        <div class="tags-area">
-                            <span>Writing</span>
-                        </div>
-                    </div>
+                <div class="single-input message">
+                    <label for="linkedinUrl" class="form-label">LinkedIn Profile URL</label>
+                    <input type="url" class="form-control" id="linkedinUrl" name="linkedinUrl"
+                        placeholder="https://linkedin.com/in/yourprofile">
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-style-one">
-                        <a href="blog-details.html" class="thumbnail">
-                            <img src="assets/images/blog/blog-03.jpg" alt="blog">
-                        </a>
-                        <div class="blog-top-area">
-                            <div class="single">
-                                <i class="fa-light fa-calendar-days"></i>
-                                <p>October 26, 2023</p>
-                            </div>
-                            <div class="single">
-                                <i class="fa-light fa-user"></i>
-                                <p>Jon Adam</p>
-                            </div>
-                        </div>
-                        <a href="blog-details.html">
-                            <h5 class="title">Outschool mom helped her
-                                son discover his superpower</h5>
-                        </a>
-                        <div class="tags-area">
-                            <span>Reading</span>
-                        </div>
-                    </div>
+                <div class="single-input message">
+                    <label for="instagramUrl" class="form-label">Instagram Profile URL <small
+                            class="text-muted">(Optional)</small></label>
+                    <input type="url" class="form-control" id="instagramUrl" name="instagramUrl"
+                        placeholder="https://instagram.com/yourprofile">
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-style-one">
-                        <a href="blog-details.html" class="thumbnail">
-                            <img src="assets/images/blog/blog-04.jpg" alt="blog">
-                        </a>
-                        <div class="blog-top-area">
-                            <div class="single">
-                                <i class="fa-light fa-calendar-days"></i>
-                                <p>October 26, 2023</p>
-                            </div>
-                            <div class="single">
-                                <i class="fa-light fa-user"></i>
-                                <p>Jon Adam</p>
-                            </div>
-                        </div>
-                        <a href="blog-details.html">
-                            <h5 class="title">How to spark passion-led,
-                                interest-based creativity.</h5>
-                        </a>
-                        <div class="tags-area">
-                            <span>Coding</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-style-one">
-                        <a href="blog-details.html" class="thumbnail">
-                            <img src="assets/images/blog/blog-05.jpg" alt="blog">
-                        </a>
-                        <div class="blog-top-area">
-                            <div class="single">
-                                <i class="fa-light fa-calendar-days"></i>
-                                <p>October 26, 2023</p>
-                            </div>
-                            <div class="single">
-                                <i class="fa-light fa-user"></i>
-                                <p>Jon Adam</p>
-                            </div>
-                        </div>
-                        <a href="blog-details.html">
-                            <h5 class="title">Ways to Create A Montessori
-                                Home Environment</h5>
-                        </a>
-                        <div class="tags-area">
-                            <span>Music</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-style-one">
-                        <a href="blog-details.html" class="thumbnail">
-                            <img src="assets/images/blog/blog-06.jpg" alt="blog">
-                        </a>
-                        <div class="blog-top-area">
-                            <div class="single">
-                                <i class="fa-light fa-calendar-days"></i>
-                                <p>October 26, 2023</p>
-                            </div>
-                            <div class="single">
-                                <i class="fa-light fa-user"></i>
-                                <p>Jon Adam</p>
-                            </div>
-                        </div>
-                        <a href="blog-details.html">
-                            <h5 class="title">Outschool mom helped her
-                                son discover his superpower</h5>
-                        </a>
-                        <div class="tags-area">
-                            <span>Math</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="rts-studykids-pagination">
-                        <ul class="justify-content-center">
-                            <li><button class="active">01</button></li>
-                            <li><button>02</button></li>
-                            <li><button>03</button></li>
-                            <li><button>04</button></li>
-                            <li><button><i class="fa-solid fa-chevrons-right"></i></button></li>
-                        </ul>
-                    </div>
-                </div>
+                <label for="message" class="form-label">Tell us about your background, what motivates you, or how you
+                    envision contributing to Book Buddy:</label>
+                <textarea class="form-control" id="message" name="message" rows="5"
+                    placeholder="Share your relevant skills, experience, or what excites you about this opportunity."></textarea>
             </div>
+
+            <div class="form-check mb-5">
+                <input class="form-check-input" type="checkbox" id="futureContact" name="futureContact">
+                <label class="form-check-label" for="futureContact">
+                    I am open to being contacted for other relevant roles or opportunities at Book Buddy in the future.
+                </label>
+            </div>
+            <div class="form-btn">
+                <button type="submit" class="rts-btn btn-primary">Submit Application</button>
+            </div>
+             </div>
+        </form>
+        <div id="successMessage" class="success-message" style="display: none;">
+            Form submitted successfully! Thank you for your interest.We will get in touch shortly!
         </div>
     </div>
-    <!-- rts blog area end -->
-
-
+   <!-- </div>-->
     <!-- footer call to action area start -->
 
     <!-- footer call to action area start -->
@@ -374,7 +492,7 @@
                     <h3 class="form-title">Don’t Miss Awesome Stories From us</h3>
                     <div class="form-inner">
                         <input type="email" name="Email" placeholder="Enter Your mail" required>
-                        <button type="submit" class="rts-btn btn-primary border-radius">Subscribe to Magazines/Newsletter</button>
+                        <button type="submit" class="rts-btn btn-primary border-radius">Subscribe</button>
                     </div>
                 </form>
             </div>
@@ -386,7 +504,8 @@
                         <div class="footer-single-wized left-logo">
                             <div class="head">
                                 <a href="index.html">
-                                    <img src="assets/images/logo/bookbuddy logo.JPG" alt="logo" width="60px" height="60px" loading="lazy">
+                                    <img src="assets/images/logo/bookbuddy logo.JPG" alt="logo" width="60px"
+                                        height="60px" loading="lazy">
                                 </a>
                             </div>
                             <div class="body">
@@ -395,8 +514,10 @@
                                     of all backgrounds.
                                 </p>
                                 <ul class="wrapper-list">
-                                    <li><i class="fa-regular fa-location-dot"></i>No 1 Thiruvallur Street Gandhi Nagar Vadapalni Chennai </li>
-                                    <li><i class="fa-regular fa-phone"></i><a href="tel:+4733378901">+91 9080759312</a></li>
+                                    <li><i class="fa-regular fa-location-dot"></i>No 1 Thiruvallur Street Gandhi Nagar
+                                        Vadapalni Chennai </li>
+                                    <li><i class="fa-regular fa-phone"></i><a href="tel:+4733378901">+91 9080759312</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -446,7 +567,8 @@
                                         </div>
                                         <div class="content">
                                             <p class="date">August 21, 2025</p>
-                                            <h6 class="post-title"><a href="#">Your Ears' Next Adventure: Dive into Book Buddy's Captivating Story Podcasts!</a></h6>
+                                            <h6 class="post-title"><a href="#">Your Ears' Next Adventure: Dive into Book
+                                                    Buddy's Captivating Story Podcasts!</a></h6>
                                         </div>
                                     </li>
                                     <li class="post-area">
@@ -457,7 +579,8 @@
                                         </div>
                                         <div class="content">
                                             <p class="date">August 15, 2025</p>
-                                            <h6 class="post-title"><a href="#">Beyond the Bell: How Stories at Book Buddy Build Lifelong Learners (Not Just Good Grades!)</a></h6>
+                                            <h6 class="post-title"><a href="#">Beyond the Bell: How Stories at Book
+                                                    Buddy Build Lifelong Learners (Not Just Good Grades!)</a></h6>
                                         </div>
                                     </li>
                                 </ul>
@@ -484,6 +607,34 @@
     <!-- footer call to action area end -->
     <!-- footer call to action area end -->
 
+
+    <!-- Modal -->
+    <div class="modal login-pupup-modal fade" id="exampleModal-login" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Hi, Welcome back!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" class="login-form">
+                        <input type="text" placeholder="Username of Email Address" required>
+                        <input type="password" placeholder="Password" required>
+                        <div class="d-flex mb--20 align-items-center">
+                            <input type="checkbox" id="examplecheck-modal">
+                            <label for="examplecheck-modal">I agree to the terms of use and privacy policy.</label>
+                        </div>
+                        <button type="submit" class="rts-btn btn-primary">Sign In</button>
+
+                        <p class="dont-acc mt--20">Dont Have an Account? <a href="registration.html">Sign-up</a> </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- header style two -->
     <div id="side-bar" class="side-bar header-two">
         <button class="close-icon-menu"><i class="far fa-times"></i></button>
@@ -492,7 +643,8 @@
             <div class="inner-content">
                 <h4 class="title">We Build Building and Great Constructive Homes.</h4>
                 <p class="disc">
-                    We successfully cope with tasks of varying complexity, provide long-term guarantees and regularly master new technologies.
+                    We successfully cope with tasks of varying complexity, provide long-term guarantees and regularly
+                    master new technologies.
                 </p>
                 <div class="footer">
                     <h4 class="title">Got a project in mind?</h4>
@@ -505,44 +657,43 @@
             <nav class="nav-main mainmenu-nav mt--30">
                 <ul class="mainmenu metismenu" id="mobile-menu-active">
                     <li class="has-droupdown">
-                        <a href="index.html" class="main">Home</a>
-                         <!--<ul class="submenu mm-collapse">
+                        <a href="#" class="main">Home</a>
+                        <ul class="submenu mm-collapse">
                             <li><a class="mobile-menu-link" href="index.html">Home 01</a></li>
-                           <li><a class="mobile-menu-link" href="index-two.html">Home 02</a></li>
+                            <li><a class="mobile-menu-link" href="index-two.html">Home 02</a></li>
                             <li><a class="mobile-menu-link" href="index-three.html">Home 03</a></li>
-                            <li><a class="mobile-menu-link" href="index-four.html">home 04</a></li>-->
+                            <li><a class="mobile-menu-link" href="index-four.html">home 04</a></li>
                         </ul>
                     </li>
                     <li class="has-droupdown">
                         <a href="#" class="main">Pages</a>
                         <ul class="submenu mm-collapse">
                             <li><a class="mobile-menu-link" href="about.html">About Us</a></li>
-                            <!--<li><a class="mobile-menu-link" href="team.html">Team</a></li>
-                            <li><a class="mobile-menu-link" href="team-details.html">Team Details</a></li>-->
+                            <li><a class="mobile-menu-link" href="team.html">Team</a></li>
+                            <li><a class="mobile-menu-link" href="team-details.html">Team Details</a></li>
                             <li><a class="mobile-menu-link" href="event.html">Event</a></li>
                             <li><a class="mobile-menu-link" href="event-details.html">Event Details</a></li>
-                            <!--<li><a class="mobile-menu-link" href="program-details.html">Program Details</a></li>
+                            <li><a class="mobile-menu-link" href="program-details.html">Program Details</a></li>
                             <li><a class="mobile-menu-link" href="pricing.html">Pricing</a></li>
-                            <li><a class="mobile-menu-link" href="pricing-two.html">Pricing Two</a></li>-->
+                            <li><a class="mobile-menu-link" href="pricing-two.html">Pricing Two</a></li>
                         </ul>
                     </li>
                     <li class="has-droupdown">
-                        <a href="#" class="main">Courses</a>
+                        <a href="#" class="main">Class</a>
                         <ul class="submenu mm-collapse">
-                            <li><a class="mobile-menu-link" href="school-work.html">School Work</a></li>
-                            <li><a class="mobile-menu-link" href="beyond-school.html">Beyond School</a></li>
-                            <li><a class="mobile-menu-link" href="podcasts.html">Podcasts</a></li>
+                            <li><a class="mobile-menu-link" href="course.html">Courses</a></li>
+                            <li><a class="mobile-menu-link" href="course-details.html">Course Details</a></li>
                         </ul>
                     </li>
                     <li class="has-droupdown">
-                        <a href="blog-left-sidebar.html" class="main">Blog</a>
-                        <!--<ul class="submenu mm-collapse">
+                        <a href="#" class="main">Blog</a>
+                        <ul class="submenu mm-collapse">
                             <li><a class="mobile-menu-link" href="blog.html">Blog</a></li>
                             <li><a class="mobile-menu-link" href="blog-grid.html">Blog Grid</a></li>
                             <li><a class="mobile-menu-link" href="blog-list.html">Blog List</a></li>
                             <li><a class="mobile-menu-link" href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
                             <li><a class="mobile-menu-link" href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                            <li><a class="mobile-menu-link" href="blog-details.html">Blog Details</a></li>-->
+                            <li><a class="mobile-menu-link" href="blog-details.html">Blog Details</a></li>
                         </ul>
                     </li>
                     <li class="menu-item">
@@ -585,36 +736,36 @@
     </div>
     <!-- header style two End -->
 
-     <div id="preloader" class="preloader">
+    <div id="preloader" class="preloader">
         <div class="animation-preloader">
             <div class="txt-loading">
                 <span data-text-preloader="B" class="letters-loading first">
-                        B
-                    </span>
-                <span data-text-preloader="O" class="letters-loading first">
-                        O
-                    </span>
+                    B
+                </span>
                 <span data-text-preloader="O" class="letters-loading first">
                     O
-                    </span>
+                </span>
+                <span data-text-preloader="O" class="letters-loading first">
+                    O
+                </span>
                 <span data-text-preloader="K" class="letters-loading first">
                     K
-                    </span>
+                </span>
                 <span data-text-preloader="B" class="letters-loading first">
-                        B
-                    </span>
+                    B
+                </span>
                 <span data-text-preloader="U" class="letters-loading">
-                        U
-                    </span>
-                <span data-text-preloader="D" class="letters-loading">
-                        D
-                    </span>
+                    U
+                </span>
                 <span data-text-preloader="D" class="letters-loading">
                     D
-                    </span>
+                </span>
+                <span data-text-preloader="D" class="letters-loading">
+                    D
+                </span>
                 <span data-text-preloader="Y" class="letters-loading">
                     Y
-                    </span>
+                </span>
             </div>
             <p class="text-center">Loading</p>
         </div>
@@ -639,7 +790,9 @@
     <!-- rts backto top start -->
     <div class="progress-wrap">
         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
         </svg>
     </div>
     <!-- rts backto top end -->
@@ -692,11 +845,12 @@
     <!-- bootstrap 5.0.2 -->
     <script src="assets/js/plugins/bootstrap.min.js"></script>
     <!-- dymanic Contact Form -->
-    <script src="assets/js/plugins/contact.form.js"></script>
+    <script src="assets/js/plugins/joinUs.js"></script>
     <!-- calender js -->
     <script src="assets/js/plugins/calender.js"></script>
     <!-- main Js -->
     <script src="assets/js/main.js"></script>
+
 
 </body>
 
