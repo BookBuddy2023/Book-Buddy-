@@ -22075,7 +22075,7 @@ nav ul li a {
   transform: translateY(-3px) scale(1.09);
 }
 
-.rts-studykids-pagination ul {
+.rts-bookbuddy-pagination ul {
   padding: 0;
   margin: 0;
   display: flex;
@@ -22083,11 +22083,11 @@ nav ul li a {
   list-style: none;
   justify-content: center;
 }
-.rts-studykids-pagination ul li {
+.rts-bookbuddy-pagination ul li {
   margin: 0;
   margin-right: 10px;
 }
-.rts-studykids-pagination ul li button {
+.rts-bookbuddy-pagination ul li button {
   width: 50px;
   height: 50px;
   background: transparent;
@@ -22099,11 +22099,11 @@ nav ul li a {
   transition: 0.3s;
   border-radius: 4px;
 }
-.rts-studykids-pagination ul li button.active {
+.rts-bookbuddy-pagination ul li button.active {
   background: var(--color-primary-2);
   color: #fff;
 }
-.rts-studykids-pagination ul li button:hover {
+.rts-bookbuddy-pagination ul li button:hover {
   background: var(--color-primary-2);
   color: #fff;
 }
@@ -24798,3 +24798,389 @@ header.header-three .sub-dropdown .submenu.third-lvl.base {
   height: 51px;
 }
 /*# sourceMappingURL=../maps/style.css.map */
+
+
+/*Styling for reading comprehension landing page */
+ .rc-main-header {
+    text-align: center;
+    margin: 1.5rem 0 1rem 1.5rem;
+    background-color: var(--color-instagram);
+} 
+
+h4 {
+    text-align: center;
+}
+h6 {
+ align-items: center;
+}
+
+/* --- Main Container & Layout (Using Grid) --- */
+.rc-container {
+    background-color: var(--color-primary-8);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+
+/* --- Main content flow container to manage all sections and button --- */
+.rc-main-content-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5 rem;
+}
+
+.rc-selection-section {
+    flex-basis:auto;
+    flex-grow: 1;
+    margin-bottom: 1%;
+}
+
+
+
+.rc-level-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 0.75rem;
+    max-width: 100%;
+    justify-items: center; 
+    margin: 0 auto;
+}
+
+.rc-card {
+    background-color: var(--color-primary);
+    border: 3px solid transparent;
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    width:200px;
+    height: 200px;
+    transition: all 0.3s ease;
+}
+
+.rc-card.selected {
+    border-color: #bf250a;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.rc-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    background-color: #ffffff;
+}
+
+.rc-speech-bubble {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #c3ed60;
+    border: 1px solid #110e0e;
+    border-radius: 10px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.rc-card[data-level="novice"]:hover .rc-speech-bubble {
+    opacity: 1;
+}
+
+.rc-mode-doors {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    perspective: 800px;
+}
+
+.rc-door {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transform-origin: center;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+    transition: all 0.3s ease;
+    will-change: transform, box-shadow;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.rc-door.selected {
+    border-color: #00ff00;
+    box-shadow: 0 0 25px 5px #00ff00;
+    transform: scale(1.05);
+}
+
+.rc-door[data-mode="offline"] {
+  
+    background-image: url('/assets/images/rc/printWorksheet.jpg');
+}
+
+.rc-door[data-mode="online"] {
+    background-image: url('/assets/images/rc/readOnline.jpg');
+}
+
+.rc-door:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 123, 255, 1);
+}
+
+.rc-door-panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    padding-top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    
+}
+
+.rc-door:hover .door-panel {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
+/* .rc-cta-button {
+    background-color: #28a745;
+    color: rgb(231, 224, 224);
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    opacity: 0.6;
+    pointer-events: none;
+    transition: all 0.3s ease;
+} */
+.rc-cta-button {
+  display: inline-block; /* Or block, with a specific width */
+  background-color: #c5dc6f;
+    color: black;
+    font-family: var(--p-bold);
+  width: 200px; /* Or a percentage, like 50% */
+  height: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  cursor:pointer;
+  pointer-events:none;
+  transition: all 0.3s ease;
+}
+
+.rc-cta-button.active {
+    opacity: 1;
+    pointer-events: all;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 650px) {
+    .rc-main-content-flow {
+        flex-direction: column;
+    }
+    .rc-selection-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .rc-level-cards {
+        gap: 0.5rem;
+    }
+    .rc-door {
+        width: 130px;
+        height: 180px;
+    }
+}
+
+/*Styling for reading comprehension landing page ends */
+/* Styling for rc offline worksheets starts*/
+
+/* Custom styles for the reading comprehension table */
+.table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+    transition: background-color 0.2s ease;
+}
+
+.table-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.table-light th {
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    color: #495057;
+    padding: 16px 12px;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+    padding: 14px 12px;
+}
+
+/* Header styling */
+thead th {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    color: white !important;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Grade level header cells */
+th[scope="row"] {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    font-weight: 600;
+    color: #1565c0;
+    border-right: 2px solid #90caf9 !important;
+}
+
+/* Alternating row colors for better readability */
+tbody tr:nth-child(odd) {
+    background-color: rgba(248, 249, 250, 0.5);
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Button styling */
+.btn-sm-custom {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    border-radius: 6px;
+    border-width: 2px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 140px;
+}
+
+.btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.3);
+}
+
+/* Icon spacing */
+.fas {
+    font-size: 0.9rem;
+}
+
+.me-1 {
+    margin-right: 0.25rem;
+}
+
+/* Text alignment and spacing */
+.text-center {
+    vertical-align: middle;
+}
+
+.align-middle {
+    vertical-align: middle;
+}
+
+/* Remove top border for continuation rows */
+.border-top-0 {
+    border-top: none !important;
+}
+
+/* Hover effects for download buttons */
+.btn-sm-custom:hover {
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table-responsive {
+        margin: 10px 0;
+        border-radius: 6px;
+    }
+    
+    .table th,
+    .table td {
+        padding: 10px 8px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-sm-custom {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        min-width: 120px;
+    }
+    
+    thead th {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .table-responsive {
+        font-size: 0.85rem;
+    }
+    
+    .btn-sm-custom {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+        min-width: 100px;
+    }
+    
+    .fas {
+        font-size: 0.8rem;
+    }
+}
+
+/* styling for rc offline worksheet ends*/
+

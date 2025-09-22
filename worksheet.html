@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Animals Worksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .passage {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .animal-images {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .animal-images img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .options button:hover {
+            background-color: #e9e9e9;
+        }
+        #feedback {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            min-height: 20px;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Farm Animals Worksheet 🚜</h1>
+        <p>Read the story about farm animals. Then, answer the question.</p>
+
+        <div class="passage">
+            <p>The sun is up! Farmer Ben wakes up. He goes to the barn. He sees the farm animals. The big cow says, "Moo!" It is hungry. The little pig says, "Oink!" It likes mud. The white sheep says, "Baa!" It has soft wool. Farmer Ben gives them all food.</p>
+        </div>
+
+        <div class="animal-images">
+            <img src="https://via.placeholder.com/100/A8A8A8/FFFFFF?text=Cow" alt="A cow">
+            <img src="https://via.placeholder.com/100/A8A8A8/FFFFFF?text=Pig" alt="A pig">
+            <img src="https://via.placeholder.com/100/A8A8A8/FFFFFF?text=Sheep" alt="A sheep">
+        </div>
+
+        <div class="question">
+            <p>1. What does the pig say?</p>
+            <div class="options" data-correct-answer="Oink" data-audio-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+                <button onclick="checkAnswer(this)">Moo</button>
+                <button onclick="checkAnswer(this)">Oink</button>
+                <button onclick="checkAnswer(this)">Baa</button>
+            </div>
+        </div>
+
+        <div id="feedback"></div>
+
+    </div>
+
+    <script>
+        function checkAnswer(button) {
+            const optionsDiv = button.parentElement;
+            const correctAnswer = optionsDiv.getAttribute('data-correct-answer');
+            const selectedAnswer = button.textContent;
+            const feedbackDiv = document.getElementById('feedback');
+            
+            // Disable all buttons to prevent multiple clicks
+            Array.from(optionsDiv.children).forEach(btn => btn.disabled = true);
+
+            if (selectedAnswer === correctAnswer) {
+                feedbackDiv.textContent = 'Correct! 🎉';
+                feedbackDiv.className = 'correct';
+                // Play audio on correct answer
+                const audioSrc = optionsDiv.getAttribute('data-audio-src');
+                if (audioSrc) {
+                    const audio = new Audio(audioSrc);
+                    audio.play();
+                }
+            } else {
+                feedbackDiv.textContent = 'Try again. 🤔';
+                feedbackDiv.className = 'incorrect';
+                // You might re-enable buttons for the 'try again' case
+                Array.from(optionsDiv.children).forEach(btn => btn.disabled = false);
+            }
+        }
+    </script>
+
+</body>
+</html>

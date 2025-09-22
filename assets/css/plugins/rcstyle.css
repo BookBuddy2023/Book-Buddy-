@@ -1,0 +1,234 @@
+/* --- Global Styles --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.rc-main-header {
+    text-align: center;
+    margin: 1.5rem 0 1rem;
+}
+
+.rc-main-header .rc-logo {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.rc-h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+p {
+    font-size: 0.9rem;
+}
+
+/* --- Main Container & Layout (Using Grid) --- */
+.rc-container {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 95%;
+    max-width: 750px;
+}
+
+/* --- Main content flow container to manage all sections and button --- */
+.rc-main-content-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.rc-selection-section {
+    flex-basis: 300px;
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: #007bff;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.rc-level-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    justify-items: center;
+    width: 310px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.rc-card {
+    background-color: #e9f5ff;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    width: 130px;
+    transition: all 0.3s ease;
+}
+
+.rc-card.selected {
+    border-color: #007bff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.rc-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    background-color: #ffffff;
+}
+
+.rc-speech-bubble {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.rc-card[data-level="novice"]:hover .speech-bubble {
+    opacity: 1;
+}
+
+.rc-mode-doors {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    perspective: 800px;
+}
+
+.rc-door {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transform-origin: center;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+    transition: all 0.3s ease;
+    will-change: transform, box-shadow;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.rc-door.selected {
+    border-color: #00ff00;
+    box-shadow: 0 0 25px 5px #00ff00;
+    transform: scale(1.05);
+}
+
+.rc-door[data-mode="offline"] {
+    background-image: url('https://via.placeholder.com/150x200/5D4037/FFFFFF?text=Cozy+Room');
+}
+
+.rc-door[data-mode="online"] {
+    background-image: url('https://via.placeholder.com/150x200/1E3C72/FFFFFF?text=Starry+Sky');
+}
+
+.rc-door:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 123, 255, 1);
+}
+
+.rc-door-panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    padding-top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
+.rc-door:hover .door-panel {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.rc-door-panel i {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.cta-button {
+    background-color: #28a745;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    opacity: 0.6;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.cta-button.active {
+    opacity: 1;
+    pointer-events: all;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 650px) {
+    .rc-main-content-flow {
+        flex-direction: column;
+    }
+    .rc-selection-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .rc-level-cards {
+        gap: 0.5rem;
+    }
+    .rc-door {
+        width: 130px;
+        height: 180px;
+    }
+}
