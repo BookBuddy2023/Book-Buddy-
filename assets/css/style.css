@@ -25292,7 +25292,6 @@ tbody tr:nth-child(even) {
     height: auto; 
     max-height: 70vh; /* Max height to fit within the viewport */
     overflow: hidden; 
-    background-color: #f7f0e3; 
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     perspective: 1000px; /* CRITICAL for 3D flip */
@@ -25395,9 +25394,15 @@ tbody tr:nth-child(even) {
     z-index: 10;
 }
 
+.bb-book-viewer-container {
+  width: 100%;
+}
+
 .book-container {
     /* CRITICAL: Allows children (pages) to participate in 3D perspective */
     perspective: 1000px; 
+    width: 100%;
+    max-width: none;
 }
 
 /* Base state for all pages */
