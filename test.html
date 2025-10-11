@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page</title>
+  <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
+  <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+  <style>
+    body { font-family: 'Arial', sans-serif; background: #f0f2f5; margin:0; padding:0; }
+    .container { max-width: 600px; margin: 100px auto; text-align: center; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);}
+    .access-denied { color: #dc3545; font-weight: bold; margin-top: 20px; }
+    #user-avatar { border-radius: 50%; border: 2px solid #007bff; margin-bottom: 10px; }
+    #user-name { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; display:block; }
+    button { padding: 6px 15px; font-weight:bold; cursor:pointer; }
+  </style>
+  <script async crossorigin="anonymous" 
+      data-clerk-publishable-key="pk_test_cmVndWxhci10cm9sbC0yNi5jbGVyay5hY2NvdW50cy5kZXYk"
+      src="https://regular-troll-26.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js">
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Test Page</h1>
+    <div id="user-info" style="display:none;">
+      <img id="user-avatar" src="" width="100">
+      <span id="user-name"></span>
+      <br>
+      <button id="sign-out-btn" class="btn btn-outline-primary">Sign Out</button>
+    </div>
+
+    <div id="access-denied" class="access-denied" style="display:none;">
+      You must <strong>login</strong> to access this page. Redirecting...
+    </div>
+  </div>
+
+  <script>
+    async function initTestPage() {
+      if (typeof window.Clerk === 'undefined') {
+        await new Promise(resolve => {
+          const check = setInterval(() => {
+            if (typeof window.Clerk !== 'undefined') { clearInterval(check); resolve(); }
+          }, 100);
+        });
+      }
+
+      await window.Clerk.load();
+      const user = window.Clerk.user;
+
+      if (!user) {
+        document.getElementById('access-denied').style.display = 'block';
+        setTimeout(() => { window.location.href = 'clerk.html'; }, 3000);
+        return;
+      }
+
+      const userInfo = document.getElementById('user-info');
+      userInfo.style.display = 'block';
+      const userName = user.firstName || user.primaryEmailAddress?.emailAddress || 'User';
+      document.getElementById('user-name').textContent = userName;
+      document.getElementById('user-avatar').src = user.imageUrl || user.profileImageUrl || 'https://www.gravatar.com/avatar/?d=mp';
+
+      document.getElementById('sign-out-btn').addEventListener('click', () => {
+        window.Clerk.signOut();
+        window.location.href = 'clerk.html';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initTestPage);
+  </script>
+
+</body>
+</html>

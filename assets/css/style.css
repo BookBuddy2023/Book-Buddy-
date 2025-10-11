@@ -25180,7 +25180,256 @@ tbody tr:nth-child(even) {
     .fas {
         font-size: 0.8rem;
     }
+    
+/* --- NAVIGATION BAR STYLING  --- */
+}
+.bb-nav-container {
+    /* Dark background area matching the image's header */
+    background-color: #e0333f; 
+    margin:10px auto;
+    padding: 20px 0 0 0;
+    position: sticky;
+    top: 0; 
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(51, 186, 223, 0.4);
+}
+
+.bb-anchor-nav {
+    display: flex; 
+    justify-content: center;
+    padding-bottom: 5px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bb-anchor-nav a {
+    color: #ddd; 
+    text-decoration: none;
+    font-weight: 600; 
+    font-size: 1.5em; 
+    padding: 10px 30px;
+    margin: 0 5px;
+    transition: color 0.3s;
+    position: relative;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.bb-anchor-nav a:hover {
+    color: var(--color-primary); 
+}
+
+/* The Highlight Bar (The active line beneath the tab) */
+.bb-anchor-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; 
+    height: 3px;
+    background-color: var(--color-primary-2); 
+    transition: width 0.3s ease-out;
+}
+
+.bb-anchor-nav a.active {
+    color: var(--color-white); 
+}
+
+.bb-anchor-nav a.active::after {
+    /* Bright Yellow highlight line */
+    width: 100%; 
+    background-color: var(--color-primary); 
+}
+
+    /* --- RESPONSIVENESS for bb anchor nav --- */
+@media (max-width: 768px) {
+    .bb-anchor-nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: flex-start;
+        padding: 10px 10px;
+    }
+    .bb-anchor-nav a {
+        padding: 8px 10px;
+        font-size: 0.9em;
+        margin: 0 4px;
+    }
 }
 
 /* styling for rc offline worksheet ends*/
+/* css for book viewer*/
+/* --- CRITICAL: BOOK VIEWER BASE STYLES --- */
+/* --- MODAL CONTENT ADJUSTMENTS (Ensure the modal is large enough) --- */
+.bb-modal-content {
+    max-width: 90vw; 
+    max-height: 90vh; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    padding: 20px; 
+    box-sizing: border-box; 
+}
 
+/* Make the modal body area flexible and centered */
+.bb-modal-body {
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    overflow: hidden; 
+}
+
+/* --- BOOK VIEWER BASE STYLES (Stacking and Sizing) --- */
+.book-container {
+    position: relative;
+    width: 100%; 
+    max-width: 700px; /* Max width for the book */
+    aspect-ratio: 0.75; /* 3:4 portrait aspect ratio for the book window */
+    height: auto; 
+    max-height: 70vh; /* Max height to fit within the viewport */
+    overflow: hidden; 
+    background-color: #f7f0e3; 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    perspective: 1000px; /* CRITICAL for 3D flip */
+}
+
+.book-container .page {
+    /* STACKING AND CROPPING */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* CRITICAL: Crops image to fill the container */
+    object-position: center; /* Centers the image within the crop */
+    
+    /* HIDING AND ANIMATION */
+    opacity: 0; 
+    pointer-events: none;
+    z-index: 1; 
+    backface-visibility: hidden;
+    transform: rotateY(0deg); 
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out, opacity 0.8s; 
+}
+
+.book-container .page.active {
+    opacity: 1; 
+    pointer-events: auto;
+    z-index: 10;
+}
+
+/* --- FLIPPING ANIMATION STYLES --- */
+.book-container .page.flip-next {
+    transform: rotateY(-180deg);
+    opacity: 0;
+    z-index: 20; 
+}
+
+.book-container .page.flip-prev {
+    transform: rotateY(180deg);
+    opacity: 0;
+    z-index: 20; 
+}
+
+/* --- CONTROL STYLES (Ensuring buttons are visible and clickable) --- */
+.book-container .controls {
+    position: absolute;
+    bottom: 50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30; /* CRITICAL: Must be higher than page images */
+    display: flex;
+    gap: 15px; 
+}
+
+.book-container .controls button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-primary); 
+    color: var(--color-text-dark); 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.book-container {
+    position: relative;
+    /* Define a fixed size for the viewer window */
+    width: 600px; 
+    height: 800px;
+    overflow: hidden; 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.book-container .page {
+    /* STACKING RULE: All pages are absolutely positioned */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    
+    /* HIDING RULE: All pages are hidden by default */
+    opacity: 0; 
+    pointer-events: none;
+    z-index: 1; /* Low z-index */
+    
+    /* Animation setup */
+    transform: rotateY(0deg); 
+    transform-style: preserve-3d;
+    transition: opacity 0.01s ease 0.4s, transform 0.8s;
+}
+
+.book-container .page.active {
+    /* SHOWING RULE: Only the active page is visible and clickable */
+    opacity: 1; 
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.book-container {
+    /* CRITICAL: Allows children (pages) to participate in 3D perspective */
+    perspective: 1000px; 
+}
+
+/* Base state for all pages */
+.book-container .page {
+    /* Ensure the back face is hidden during 3D rotation */
+    backface-visibility: hidden;
+    /* Set transition properties (should match the transition duration in .page) */
+    transition: transform 0.8s ease-in-out, opacity 0.8s; 
+}
+
+/* 1. When moving to the NEXT page (Current page flips away to the left) */
+.book-container .page.flip-next {
+    /* Rotates the page 180 degrees around the Y-axis (flips away) */
+    transform: rotateY(-180deg);
+    opacity: 0;
+    z-index: 20; /* Ensure the flipping page stays on top until it disappears */
+}
+
+/* 2. When moving to the PREVIOUS page (Current page flips away to the right) */
+.book-container .page.flip-prev {
+    /* Rotates the page 180 degrees in the opposite direction */
+    transform: rotateY(180deg);
+    opacity: 0;
+    z-index: 20; 
+}
+
+/* 3. The incoming page (the new .active page) */
+/*
+   Note: The new page starts in the rotated state and is instantly flipped
+   back to 0deg (flat) by applying the .active class. However, in the
+   JavaScript, the transition is primarily handled by the existing page
+   flipping away and the new page simply becoming visible (opacity: 1)
+   after the old one has rotated enough. The styles above handle the movement
+   of the page leaving the view.
+*/

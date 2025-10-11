@@ -29,10 +29,29 @@
     border-radius: 8px; /* Matches your wrapper's border-radius for clean look */
 }
     </style>
+    <script async crossorigin="anonymous" 
+      data-clerk-publishable-key="pk_test_cmVndWxhci10cm9sbC0yNi5jbGVyay5hY2NvdW50cy5kZXYk"
+      src="https://regular-troll-26.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js">
+  </script>
 </head>
 
 <body>
-<!-- Header with user info -->
+
+<div class="header" style="background-color: #f8f9fa; padding: 1.5rem; border-bottom: 1px solid #e2e6ea; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+  <div class="d-flex justify-content-between align-items-center" style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="logo" style="font-size: 1.5rem; font-weight: bold; color: #333;">Book Buddy Logo</div>
+    <div id="user-info" class="user-info" style="display: none; align-items: center;">
+      <img id="user-avatar" class="user-avatar" src="" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); margin-right: 0.75rem;">
+      <span id="user-name" style="font-weight: 500; color: #555; margin-right: 1rem;"></span>
+      <button id="sign-out-btn" class="btn btn-outline-danger btn-sm ms-2" style="background-color: transparent; color: #dc3545; border: 1px solid #dc3545; padding: 0.25rem 0.75rem; font-size: 0.875rem; border-radius: 0.25rem; cursor: pointer; transition: all 0.3s ease;">
+        <i class="fas fa-sign-out-alt me-1" style="margin-right: 0.25rem;"></i>Sign Out
+      </button>
+    </div>
+  </div>
+</div>
+
+<!--old header format
+ Header with user info 
   <div class="header">
     <div class="d-flex justify-content-between align-items-center">
       <div class="logo">Book Buddy Logo</div>
@@ -44,7 +63,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </div>  -->
     <!-- header style one -->
     <!-- header style one -->
     <header class="header-one header--sticky header-default">
@@ -121,65 +140,47 @@
                         <nav>
                             <ul>
                                 <a class="nav-link" href="index.html">Home</a>
-                                <!-- no dropdown for homepage
-                                <li class="has-dropdown" style="position: static;">
-                                    <a class="nav-link" href="index-two.html">Home</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="index.html">Home 01</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-two.html">Home 02</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-three.html">Home 03</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-four.html">Home 04</a>
-                                        </li>
-                                    </ul>
-                                </li> -->
+                                <a class="nav-link" href="about.html">About Us</a>
                                 <li class="has-dropdown">
-                                    <a class="nav-link" href="#">Pages</a>
+                                    <a class="nav-link" href="#">Library</a>
                                     <ul class="submenu">
-                                        <li><a href="about.html">About Us</a></li>
-                                        <!--<li><a href="team.html">Team</a></li>
-                                        <li><a href="team-details.html">Team Details</a></li>-->
-                                        <li><a href="event.html">Event</a></li>
-                                        <li><a href="event-details.html">Event Details</a></li>
-                                        <!--<li><a href="program-details.html">Program Details</a></li>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li><a href="pricing-two.html">Pricing Two</a></li>-->
+                                        <li><a href="library-catalogue.html">Library Catalogue</a></li>
+                                        <li><a href="membership-plans.html">Membership & Plans</a></li>
+                                        <li><a href="new-arrivals.html">New Arrivals</a></li>                                      
+                                        <li><a href="recommend-book.html">Recommend a Book</a></li>
+                                        <li><a href="program-details.html">How to Borrow</a></li>
+                                        <li><a href="faqs.html">FAQS</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-dropdown">
-                                    <a class="nav-link" href="#">Courses</a>
+                                    <a class="nav-link" href="#">Programs</a>
                                     <ul class="submenu">
+                                        <li><a href="event.html">Classes & Workshops</a></li>
+                                        <li><a href="beyond-school.html">Beyond School</a></li>
                                         <li><a href="schoolwork.html">School Work</a></li>
-                                        <li><a href="beyondschool.html">Beyond School</a></li>
-                                        <li><a href="podcasts.html">Podcasts</a></li>
                                     </ul>
                                 </li>
-                                <a class="nav-link" href="blog-left-sidebar.html">Blog</a>
-                                <!-- blog has no drop down
                                  <li class="has-dropdown">
-                                    <a class="nav-link" href="blog-left-sidebar.html">Blog</a>
+                                    <a class="nav-link" href="#">Read & Create</a>
                                     <ul class="submenu">
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                                        <li><a href="blog-list.html">Blog List</a></li>
-                                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                        <li><a href="our-magazine.html">Our Magazine</a></li>
+                                        <li><a href="blog-left-sidebar.html">Community Blog</a></li>
+                                        <li><a href="creative-corner">Creative Corner</a></li>
+                                        <li><a href="event.html">Events & Workshops</a></li>
                                     </ul>
-                                </li>-->
+                                </li>
+                                <a class="nav-link" href="get-involved.html">Get Involved</a>
                                 <li>
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <li class="has-dropdown">
+                                    <a class="nav-link" href="#">Contact</a>
+                                    <ul class="submenu">
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="careers.html">Join our Team</a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </nav>
                     </div>
-
                     <div class="header-right-area-one">
                         <div class="buttons-area">
                             <a href="contact.html" class="rts-btn btn-primary">Contact Us</a>
@@ -321,7 +322,7 @@ We ignite curiosity and critical thinking, fostering a lifelong journey where de
                             <img src="assets/images/about/IMG20240408180900.jpg" alt="">
                             <div class="video-btn-area">
                                 <div class="vedio-icone">
-                                    <a class="video-play-button play-video popup-video" href="./assets/images/banner/bookbuddylibrary overview.mp4">
+                                    <a class="video-play-button play-video popup-video" href="./assets/images/gallery/Book-Buddy-Promo.mp4">
                                         <span class="icon"><img src="assets/images/icon/round-shape.svg" width="80" alt=""></span>
                                         <span class="play-icon">
                                             <img src="assets/images/icon/play.svg" width="32" alt="">
@@ -624,7 +625,7 @@ We ignite curiosity and critical thinking, fostering a lifelong journey where de
                     <h3 class="form-title">Don’t Miss Awesome Stories From us</h3>
                     <div class="form-inner">
                         <input type="email" name="Email" placeholder="Enter Your mail" required>
-                        <button type="submit" class="rts-btn btn-primary border-radius">Subscribe to Magazines/Newsletter</button>
+                        <button type="submit" class="rts-btn btn-primary border-radius">Subscribe</button>
                     </div>
                 </form>
             </div>
@@ -645,7 +646,7 @@ We ignite curiosity and critical thinking, fostering a lifelong journey where de
                                     of all backgrounds.
                                 </p>
                                 <ul class="wrapper-list">
-                                    <li><i class="fa-regular fa-location-dot"></i>No 1 Thiruvallur Street Gandhi Nagar Vadapalni Chennai </li>
+                                    <li><i class="fa-regular fa-location-dot"></i>No 1 Thiruvallur Street Gandhi Nagar Vadapalani Chennai 600093 </li>
                                     <li><i class="fa-regular fa-phone"></i><a href="tel:+4733378901">+91 9080759312</a></li>
                                 </ul>
                             </div>
@@ -780,55 +781,53 @@ We ignite curiosity and critical thinking, fostering a lifelong journey where de
         <div class="mobile-menu-main">
             <nav class="nav-main mainmenu-nav mt--30">
                 <ul class="mainmenu metismenu" id="mobile-menu-active">
-                    <a href="index.html" class="main">Home</a>
-                         <!--<ul class="submenu mm-collapse">
-                            <li><a class="mobile-menu-link" href="index.html">Home 01</a></li>
-                           <li><a class="mobile-menu-link" href="index-two.html">Home 02</a></li>
-                            <li><a class="mobile-menu-link" href="index-three.html">Home 03</a></li>
-                            <li><a class="mobile-menu-link" href="index-four.html">home 04</a></li>-->
+                    <li class="menu-item">
+                        <a href="index.html" class="main">Home</a>
+                    </li>
+                     <li class="menu-item">
+                        <a href="about.html" class="main">About Us</a>
+                    </li>
+                     <li class="has-droupdown">
+                        <a href="#" class="main">Library</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="library-catalogue.html">Library Catalogue</a></li>
+                            <li><a class="mobile-menu-link" href="membership-plans.html">Membership & Plans</a></li>
+                            <li><a class="mobile-menu-link" href="new-arrivals.html">New Arrivals</a></li>
+                            <li><a class="mobile-menu-link" href="recommend-book">Recommend a Book</a></li>
+                            <li><a class="mobile-menu-link" href="how-to-borrow.html">How to Borrow</a></li>
+                            <li><a class="mobile-menu-link" href="faqs.html">FAQs</a></li>
                         </ul>
                     </li>
                     <li class="has-droupdown">
-                        <a href="#" class="main">Pages</a>
+                        <a href="#" class="main">Programs</a>
                         <ul class="submenu mm-collapse">
-                            <li><a class="mobile-menu-link" href="about.html">About Us</a></li>
-                            <!--<li><a class="mobile-menu-link" href="team.html">Team</a></li>
-                            <li><a class="mobile-menu-link" href="team-details.html">Team Details</a></li>-->
-                            <li><a class="mobile-menu-link" href="event.html">Event</a></li>
-                            <!--<li><a class="mobile-menu-link" href="event-details.html">Event Details</a></li>
-                            <li><a class="mobile-menu-link" href="program-details.html">Program Details</a></li>
-                            <li><a class="mobile-menu-link" href="pricing.html">Pricing</a></li>
-                            <li><a class="mobile-menu-link" href="pricing-two.html">Pricing Two</a></li>-->
-                        </ul>
-                    </li>
-                    <li class="has-droupdown">
-                        <a href="#" class="main">Courses</a>
-                        <ul class="submenu mm-collapse">
-                            <li><a class="mobile-menu-link" href="school-work.html">School Work</a></li>
+                            <li><a class="mobile-menu-link" href="event.html">Classes & Workshops</a></li>
                             <li><a class="mobile-menu-link" href="beyond-school.html">Beyond School</a></li>
-                            <li><a class="mobile-menu-link" href="podcasts.html">Podcasts</a></li>
+                            <li><a class="mobile-menu-link" href="school-work.html">School Work</a></li>
                         </ul>
                     </li>
                     <li class="has-droupdown">
-                        <a href="blog-left-sidebar.html" class="main">Blog</a>
-                        <!--<ul class="submenu mm-collapse">
-                            <li><a class="mobile-menu-link" href="blog.html">Blog</a></li>
-                            <li><a class="mobile-menu-link" href="blog-grid.html">Blog Grid</a></li>
-                            <li><a class="mobile-menu-link" href="blog-list.html">Blog List</a></li>
-                            <li><a class="mobile-menu-link" href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                            <li><a class="mobile-menu-link" href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                            <li><a class="mobile-menu-link" href="blog-details.html">Blog Details</a></li>-->
+                        <a href="#" class="main">Read & Create</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="library-catalogue.html">Library Catalogue</a></li>
+                            <li><a class="mobile-menu-link" href="our-magazine.html">Our Magazine</a></li>
+                            <li><a class="mobile-menu-link" href="blog-left-sidebar.html">Community Blog</a></li>
+                            <li><a class="mobile-menu-link" href="creative-corner">Creative Corner</a></li>
                         </ul>
                     </li>
                     <li class="menu-item">
-                        <a href="contact.html" class="main">Contact</a>
+                        <a href="get-involved.html" class="main">Get Involved</a>
                     </li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main">Contact</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="contact.html">Contact Us</a></li>
+                            <li><a class="mobile-menu-link" href="careers.html">Join our Team</a></li>
                 </ul>
             </nav>
 
             <div class="buttons-area">
-                <a href="#" class="rts-btn btn-border">Log In</a>
-                <a href="#" class="rts-btn btn-primary">Sign Up</a>
+                <a href="#" class="rts-btn btn-primary">Sign Up/Login</a>
             </div>
 
             <div class="rts-social-style-one pl--20 mt--50">
@@ -838,22 +837,22 @@ We ignite curiosity and critical thinking, fostering a lifelong journey where de
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
                     </li>
+                    <!--
+                    <li>
+                        <a href="#">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </li>-->
                     <li>
                         <a href="https://www.instagram.com/bookbuddylendinglibrary?igsh=aGdxMTd6MGN2MWZn">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </li>
-                   <!-- commented for future use
-                    <li>
-                        <a href="#">
-                            <i class="fa-brands fa-youtube"></i>
+                            <i class="fa-brands fa-instagram"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="www.linkedin.com/in/book-buddy-in">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </div>
