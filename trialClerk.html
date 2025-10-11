@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Buddy - Home</title>
+    <link rel="shortcut icon" href="assets/images/logo/bookbuddy logo.JPG" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
+    <!-- swiper Css 10.2.0 -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+    <!-- magnific popup css -->
+    <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <!-- jquery ui css -->
+    <link rel="stylesheet" href="assets/css/vendor/jquery-ui.css">
+    <!-- metismenu scss -->
+    <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
+    <!-- custom style css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+    <style>
+        /* Top Header */
+        .top-header {
+            background-color: transparent;
+            color: #800000;
+            /* maroon text */
+        }
+
+        .top-header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-left-message {
+            color: #ede6e6;
+            /* maroon */
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .buttons-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #f5f5f0;
+        }
+
+        #user-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #800000;
+        }
+
+        #sign-in-btn,
+        #sign-out-btn {
+            background-color: #ffffff;
+            color: #800000;
+            border: 1px solid #800000;
+            border-radius: 4px;
+            padding: 4px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        #sign-in-btn:hover,
+        #sign-out-btn:hover {
+            background-color: #fff4cc;
+        }
+
+
+        /* --- Modal Styling --- */
+        #signinRequiredModal .modal-header {
+            background-color: #007bff;
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            border-bottom: none;
+        }
+
+        #signinRequiredModal .modal-header i {
+            font-size: 1.8rem;
+        }
+
+        #signinRequiredModal .modal-body {
+            font-size: 1.1rem;
+            padding: 2rem 2.5rem;
+            text-align: center;
+        }
+
+        #signinRequiredModal .btn-primary {
+            background-color: #4285F4;
+            border-color: #357ae8;
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+        }
+
+        #signinRequiredModal .btn-primary:hover {
+            background-color: #357ae8;
+            border-color: #2a65c7;
+            box-shadow: 0 6px 12px rgba(0, 86, 179, 0.5);
+        }
+
+        #signinRequiredModal .modal-content {
+            border-radius: 0.75rem;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+        }
+
+        #signinRequiredModal .btn-close {
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+        }
+
+        #signinRequiredModal .btn-close:hover {
+            opacity: 1;
+        }
+    </style>
+
+    <!-- Clerk Script -->
+    <script async crossorigin="anonymous"
+        data-clerk-publishable-key="pk_test_cmVndWxhci10cm9sbC0yNi5jbGVyay5hY2NvdW50cy5kZXYk"
+        src="https://regular-troll-26.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js">
+        </script>
+</head>
+
+<body>
+    <header class="header-one header--sticky">
+        <div class="top-header">
+            <div class="container">
+                <div class="top-header-wrapper">
+                    <div class="top-left-message">
+                        Welcome to Book Buddy – Your Learning Companion
+                    </div>
+                    <div class="buttons-area">
+                        <div class="header-user-info" id="user-info">
+                            <img id="user-avatar" src="" alt="avatar" />
+                            <span id="user-name" style="font-weight: bold;"></span>
+                            <button id="sign-out-btn" class="btn">Sign Out</button>
+                        </div>
+                        <div class="auth-buttons" id="auth-buttons">
+                            <button id="sign-in-btn" class="btn">Sign In</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header-one-wrapper">
+                        <div class="left-side-header">
+                            <a href="index.html" class="logo-area">
+                                <img src="assets/images/logo/bookbuddy logo.JPG" alt="logo" width="60px" height="60px">
+                            </a>
+                        </div>
+                        <div class="main-nav-one">
+                            <nav>
+                                <ul>
+                                    <li><a class="nav-link" href="index.html">Home</a></li>
+                                    <li class="has-dropdown">
+                                        <a class="nav-link" href="#">Pages</a>
+                                        <ul class="submenu">
+                                            <li><a href="about.html">About Us</a></li>
+                                            <li><a href="event.html">Event</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a class="nav-link" href="#">Courses</a>
+                                        <ul class="submenu">
+                                            <li><a href="schoolwork.html">School Work</a></li>
+                                            <li><a href="beyondschool.html">Beyond School</a></li>
+                                            <li><a href="podcasts.html">Podcasts</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="nav-link" href="blog-left-sidebar.html">Blog</a></li>
+                                    <li><a class="nav-link" href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header-right-area-one">
+                            <div class="buttons-area">
+                                <a href="contact.html" class="rts-btn btn-primary border-radius">Contact Us</a>
+                            </div>
+                            <div class="menu-btn" id="menu-btn">
+                                <svg width="20" height="16" viewBox="0 0 20 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="14" width="20" height="2" fill="#1F1F25"></rect>
+                                    <rect y="7" width="20" height="2" fill="#1F1F25"></rect>
+                                    <rect width="20" height="2" fill="#1F1F25"></rect>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <!-- banner area start -->
+        <section class="banner-area-one rts-shape-move">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 order-xl-1 order-lg-1 order-sm-2 order-2">
+                        <div class="banner-content-one">
+                            <div class="inner">
+                                <h1 class="title-banner">
+                                    Empowering <span class="one">Minds,</span> <br> Igniting <span class="two">
+                                        Curiosity</span>
+                                    <img src="assets/images/banner/title-shape-1.svg" alt="banner">
+                                </h1>
+                                <p class="disc">An accessible online hub for holistic after-school support,
+                                    fostering dynamic skill development and a lifelong love for learning.</p>
+                                <div class="banner-btn">
+                                    <a href="about.html" class="rts-btn btn-primary border-radius">Explore Now</a>
+                                    <div class="video-btn-area">
+                                        <div class="vedio-icone">
+                                            <a class="video-play-button play-video popup-video"
+                                                href="./assets/images/gallery/ConnectWithUs.mp4">
+                                                <span class="icon"><img src="assets/images/banner/play.svg"
+                                                        alt=""></span>
+                                            </a>
+                                            <div class="video-overlay">
+                                                <a class="video-overlay-close">×</a>
+                                            </div>
+                                        </div>
+                                        <p class="intro">Watch Video</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-change order-lg-2 order-sm-1 order-1">
+                        <div class="banner-right-img">
+                            <img src="assets/images/banner/home.jpg" width="672" alt="banner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img class="banner-bg-shape-2" src="assets/images/banner/banner-bg-1.png" alt="">
+            <div class="shape-image">
+                <div class="shape one" data-speed="0.04" data-revert="true"><img src="assets/images/banner/shape/01.svg"
+                        alt="shape_image"></div>
+                <div class="shape two" data-speed="0.04"><img src="assets/images/banner/shape/02.svg" alt="shape_image">
+                </div>
+                <div class="shape three" data-speed="0.04" data-revert="true"><img
+                        src="assets/images/banner/shape/03.svg" alt="shape_image"></div>
+                <div class="shape four" data-speed="0.04" data-revert="true"><img
+                        src="assets/images/banner/shape/04.svg" alt="shape_image"></div>
+                <div class="shape five" data-speed="0.04"><img src="assets/images/banner/shape/05.svg"
+                        alt="shape_image">
+                </div>
+                <div class="shape six" data-speed="0.04"><img src="assets/images/banner/shape/06.svg" alt="shape_image">
+                </div>
+                <div class="shape seven" data-speed="0.04" data-revert="true"><img
+                        src="assets/images/banner/shape/07.svg" alt="shape_image"></div>
+            </div>
+            <div class="banner-bg-grid-shape">
+            </div>
+        </section>
+        <!-- banner area end -->
+
+        <!-- about area start -->
+        <section class="rts-about-area rts-shape-move rts-section-gap">
+            <div class="container">
+                <div class="section-inner">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="about-image">
+                                <img src="assets/images/about/library.jpg" width="630" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about-content">
+                                <div class="section-title-area">
+                                    <p class="pre-title"><img src="assets/images/banner/title-img.svg" alt="">About Us
+                                    </p>
+                                    <h2 class="section-title">Discover Our Mission for <br> Book Buddy</h2>
+                                    <p class="desc">Book Buddy empowers learners of all ages through immersive,
+                                        story-based
+                                        resources and a supportive community, fostering critical thinking where deep
+                                        learning meets genuine connection.</p>
+                                </div>
+                                <ul class="about-wrapper">
+                                    <li class="wrapper-list">
+                                        <div class="list-inner">
+                                            <div class="icon"><img src="assets/images/icon/01.svg" alt=""></div>
+                                            <div class="content">
+                                                <h4 class="title">Our Mission</h4>
+                                                <p class="desc">Book Buddy empowers learners of all ages, connecting
+                                                    them
+                                                    with immersive, story-based knowledge and a supportive community. We
+                                                    ignite curiosity and critical thinking, fostering a lifelong journey
+                                                    where deep learning meets genuine connection.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="wrapper-list">
+                                        <div class="list-inner">
+                                            <div class="icon"><img src="assets/images/icon/02.svg" alt=""></div>
+                                            <div class="content">
+                                                <h4 class="title">Our Commitment</h4>
+                                                <p class="desc">At Book Buddy, we are committed to providing every
+                                                    learner
+                                                    with high-quality, engaging, and accessible resources, fostering a
+                                                    supportive community where curiosity thrives and every learning
+                                                    journey
+                                                    is valued.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="about-btn-area">
+                                    <a href="about.html" class="rts-btn btn-primary border-radius">About More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shape-image">
+                <div class="shape one" data-speed="0.04" data-revert="true"><img src="assets/images/banner/shape/08.svg"
+                        alt="shape_image"></div>
+                <div class="shape two" data-speed="0.04" data-revert="true"><img src="assets/images/banner/shape/09.svg"
+                        alt="shape_image"></div>
+                <div class="shape three" data-speed="0.04"><img src="assets/images/banner/shape/10.svg"
+                        alt="shape_image">
+                </div>
+            </div>
+        </section>
+        <!-- about area end -->
+
+        <!-- Resources area start -->
+        <section class="rts-class-area">
+            <div class="container">
+                <div class="section-title-area text-center">
+                    <p class="pre-title justify-content-center"><img src="assets/images/banner/title-img.svg"
+                            alt="">Resources</p>
+                    <h2 class="section-title">Find Resources For Every Age</h2>
+                    <p class="desc"> Holistic after-school support, fostering dynamic skill development and a lifelong
+                        love
+                        for learning.</p>
+                </div>
+                <div class="section-inner">
+                    <div class="row g-5">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="class-wrapper">
+                                <div class="wrapper-inner">
+                                    <div class="icon">
+                                        <img src="assets/images/icon/05.svg" alt="">
+                                    </div>
+                                    <a href="schoolwork.html">
+                                        <h4 class="title">Toddlers</h4>
+                                    </a>
+                                    <p class="period">( 1 - 5 years)</p>
+                                    <p class="desc">Introduced to learning</p>
+                                    <div class="shape-icon"><img src="assets/images/banner/blink.svg" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="class-wrapper two">
+                                <div class="wrapper-inner">
+                                    <div class="icon">
+                                        <img src="assets/images/icon/03.svg" alt="">
+                                    </div>
+                                    <a href="schoolwork.html">
+                                        <h4 class="title">Beginners</h4>
+                                    </a>
+                                    <p class="period">( Grades 1 to 4)</p>
+                                    <p class="desc">Academic learning begins</p>
+                                    <div class="shape-icon"><img src="assets/images/banner/blink.svg" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="class-wrapper three">
+                                <div class="wrapper-inner">
+                                    <div class="icon">
+                                        <img src="assets/images/icon/04.svg" alt="">
+                                    </div>
+                                    <a href="schoolwork.html">
+                                        <h4 class="title">Intermediate</h4>
+                                    </a>
+                                    <p class="period">(Grades 5-8)</p>
+                                    <p class="desc">More of learning</p>
+                                    <div class="shape-icon"><img src="assets/images/banner/blink.svg" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="class-wrapper four">
+                                <div class="wrapper-inner">
+                                    <div class="icon">
+                                        <img src="assets/images/icon/06.svg" alt="">
+                                    </div>
+                                    <a href="schoolwork.html">
+                                        <h4 class="title">Advanced</h4>
+                                    </a>
+                                    <p class="period">(Grade 8 & Above)</p>
+                                    <p class="desc">Learning & Connection</p>
+                                    <div class="shape-icon"><img src="assets/images/banner/blink.svg" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Resources area end -->
+
+        <!-- podcasts area start -->
+        <section class="rts-course-area rts-shape-move section-bg">
+            <div class="container">
+                <div class="section-title-area text-center">
+                    <p class="pre-title justify-content-center"><img src="assets/images/banner/title-img.svg"
+                            alt="">Podcasts</p>
+                    <h2 class="section-title">Story Based Learning</h2>
+                    <p class="desc">Transforming listening into a powerful learning experience.</p>
+                </div>
+                <div class="slider-inner">
+                    <div class="swiper mySwiper-category-1 swiper-data" data-swiper='{
+                            "spaceBetween":30,
+                            "slidesPerView":3,
+                            "loop": true,
+                            "speed": 1500,
+                            "pagination":{
+                                "el": ".swiper-paginations",
+                                "clickable": "true"
+                            },
+                            "autoplay":{
+                                "delay":"4000"
+                            },
+                            "breakpoints":{
+                            "0":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "320":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "480":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "768":{
+                                "slidesPerView":2,
+                                "spaceBetween":30},
+                            "840":{
+                                "slidesPerView":2,
+                                "spaceBetween":30},
+                            "1140":{
+                                "slidesPerView":3,
+                                "spaceBetween":30}
+                            }
+                        }'>
+                        <div class="swiper-wrapper">
+                            <!-- single swiper style -->
+                            <div class="swiper-slide">
+                                <div class="course-wrapper">
+                                    <div class="wrapper-inner">
+                                        <div class="image">
+                                            <img src="assets/images/podcasts images/big bad fight.jfif" alt=""
+                                                width="100%">
+                                        </div>
+                                        <div class="content">
+                                            <a href="podcasts.html">
+                                                <h4 class="title">The Big Bad Fight</h4>
+                                            </a>
+                                            <p class="desc">The Big Bad Fight is a heartfelt and engaging story about
+                                                two
+                                                best friends, Anna and Kichu, who share a love for collecting unique
+                                                treasures. Their friendship faces a challenge when a game of Snakes and
+                                                Ladders leads to a misunderstanding, causing a rift between them.</p>
+                                            <ul class="feature-wrapper">
+                                                <li class="wrapper-list">Friendship</li>
+                                                <li class="wrapper-list">WorkSheet</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single swiper style -->
+                            <!-- single swiper style -->
+                            <div class="swiper-slide">
+                                <div class="course-wrapper two">
+                                    <div class="wrapper-inner">
+                                        <div class="image">
+                                            <img src="assets/images/podcasts images/bear and the bees.jfif" alt=""
+                                                width="100%">
+                                        </div>
+                                        <div class="content">
+                                            <a href="podcasts.html">
+                                                <h4 class="title">The Bear and the bees</h4>
+                                            </a>
+                                            <p class="desc">The Bear and the Bees by Ella Richardson is a charming
+                                                children's picture book that conveys a powerful message about
+                                                individuality
+                                                and self-acceptance.The book was originally written by 12-year-old Ella
+                                                Richardson as part of ITV Daybreak's "What's the Story?" competition,
+                                                where
+                                                it won first prize out of over 7,000 entries. The illustrations by Lydia
+                                                Monks, known for her vibrant and distinctive style, complement the story
+                                                beautifully. Get a cozy corner and listen to the story bought to you by
+                                                Team
+                                                Book buddy!</p>
+                                            <ul class="feature-wrapper">
+                                                <li class="wrapper-list">individuality</li>
+                                                <li class="wrapper-list">WorkSheet</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single swiper style -->
+                            <!-- single swiper style -->
+                            <div class="swiper-slide">
+                                <div class="course-wrapper three">
+                                    <div class="wrapper-inner">
+                                        <div class="image">
+                                            <img src="assets/images/podcasts images/uma vs upma.jfif" alt=""
+                                                width="100%">
+                                        </div>
+                                        <div class="content">
+                                            <a href="podcasts.html">
+                                                <h4 class="title">Uma vs Upma</h4>
+                                            </a>
+                                            <p class="desc">Uma absolutely loves playing with breakfast! She keeps
+                                                trying to
+                                                avoid it, from turning dosas into hankies to hiding vadas as jewels. But
+                                                when it comes to Upma, even the cats won’t touch it. However, after
+                                                reluctantly taking a bite, Uma is in for a big surprise — it’s
+                                                delicious!
+                                                Join Uma’s journey as she discovers how sometimes the best things are
+                                                the
+                                                ones we least expect.</p>
+                                            <ul class="feature-wrapper">
+                                                <li class="wrapper-list">Health</li>
+                                                <li class="wrapper-list">Worksheet</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single swiper style -->
+                            <!-- single swiper style -->
+
+                        </div>
+                    </div>
+                    <div class="swiper-paginations"></div>
+                </div>
+                <img class="banner-bg-shape-3" src="assets/images/banner/banner-bg-2.png" alt="">
+            </div>
+            <div class="shape-image">
+                <div class="shape one" data-speed="0.04" data-revert="true"><img src="assets/images/banner/shape/11.svg"
+                        alt="shape_image"></div>
+                <div class="shape two" data-speed="0.04" data-revert="true"><img src="assets/images/banner/shape/12.svg"
+                        alt="shape_image"></div>
+            </div>
+        </section>
+        <!-- podcasts area end -->
+
+        <!-- Beyond School area start -->
+        <section class="rts-category-area rts-section-gap">
+            <div class="container">
+                <div class="section-title-area text-center">
+                    <p class="pre-title justify-content-center"><img src="assets/images/banner/title-img.svg"
+                            alt="">Beyond
+                        School</p>
+                    <h2 class="section-title">Beyond the Bell</h2>
+                    <p class="desc">Marked by significant growth and exploration</p>
+                </div>
+                <div class="slider-inner">
+                    <div class="swiper mySwiper-category-1 swiper-data" data-swiper='{
+                        "spaceBetween":80,
+                        "slidesPerView":5,
+                        "loop": true,
+                        "speed": 1500,
+                        "navigation":{
+                            "nextEl":".swiper-button-next",
+                            "prevEl":".swiper-button-prev"
+                        },
+                        "pagination":{
+                            "el": ".swiper-pagination2",
+                            "clickable": "true"
+                        },
+                        "autoplay":{
+                            "delay":"4000"
+                        },
+                        "breakpoints":{
+                        "0":{
+                            "slidesPerView":1,
+                            "spaceBetween":30},
+                        "320":{
+                            "slidesPerView":1,
+                            "spaceBetween":80},
+                        "500":{
+                            "slidesPerView":2,
+                            "spaceBetween":80},
+                        "640":{
+                            "slidesPerView":2,
+                            "spaceBetween":80},
+                        "840":{
+                            "slidesPerView":3,
+                            "spaceBetween":80},
+                        "1140":{
+                            "slidesPerView":5,
+                            "spaceBetween":80}
+                        }
+                    }'>
+                        <div class="swiper-wrapper">
+                            <!-- single swiper style -->
+                            <div class="swiper-slide">
+                                <div class="category-wrapper">
+                                    <div class="wrapper-inner">
+                                        <div class="icon">
+                                            <a href="logical.html">
+                                                <img src="assets/images/icon/07.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <h5 class="title"><a href="logical.html">Logical</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single swiper style -->
+                            <!-- single swiper style -->
+                            <div class="swiper-slide">
+                                <div class="category-wrapper two">
+                                    <div class="wrapper-inner">
+                                        <div class="icon">
+                                            <a href="coding.html">
+                                                <img src="assets/images/icon/08.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <h5 class="title"><a href="coding.html">Coding</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single swiper style -->
+                            <!-- single swiper style -->
+                            <div class="swiper-slide">
+                                <div class="category-wrapper three">
+                                    <div class="wrapper-inner">
+                                        <div class="icon">
+                                            <a href="math.html">
+                                                <img src="assets/images/icon/09.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <h5 class="title"><a href="math.html">Math</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single swiper style -->
+                            <!-- single swiper style -->
+                            <div class="swiper-slide">
+                                <div class="category-wrapper four">
+                                    <div class="wrapper-inner">
+                                        <div class="icon">
+                                            <a href="randl.html">
+                                                <img src="assets/images/icon/10.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <h5 class="title"><a href="randl.html">Read & Listen</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single swiper style -->
+                            <!-- single swiper style -->
+                            <div class="swiper-slide">
+                                <div class="category-wrapper five">
+                                    <div class="wrapper-inner">
+                                        <div class="icon">
+                                            <a href="writing.html">
+                                                <img src="assets/images/icon/11.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <h5 class="title"><a href="writing.html">Writing</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single swiper style -->
+                        </div>
+                    </div>
+                    <div class="swiper-btn swiper-button-next">
+                        <div class="inner">
+                            <svg width="11" height="20" viewBox="0 0 11 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M1.6918 20C1.80148 20.0006 1.91019 19.9796 2.01173 19.9381C2.11326 19.8967 2.2056 19.8356 2.28347 19.7583L9.0918 12.95C9.47983 12.5629 9.78769 12.1032 9.99774 11.5969C10.2078 11.0907 10.3159 10.5481 10.3159 10C10.3159 9.45194 10.2078 8.90926 9.99774 8.40305C9.78769 7.89685 9.47983 7.43705 9.0918 7.05L2.28347 0.241678C2.20577 0.163979 2.11353 0.102345 2.01201 0.0602948C1.91049 0.0182446 1.80169 -0.00339842 1.6918 -0.00339842C1.58192 -0.00339842 1.47311 0.0182446 1.3716 0.0602948C1.27008 0.102345 1.17784 0.163979 1.10014 0.241678C1.02244 0.319376 0.960803 0.411618 0.918753 0.513136C0.876703 0.614655 0.85506 0.723461 0.85506 0.833344C0.85506 0.943226 0.876703 1.05203 0.918753 1.15355C0.960803 1.25507 1.02244 1.34731 1.10014 1.42501L7.90847 8.23333C8.37664 8.70209 8.6396 9.3375 8.6396 10C8.6396 10.6625 8.37664 11.2979 7.90847 11.7667L1.10014 18.575C1.02203 18.6525 0.960034 18.7446 0.917726 18.8462C0.875419 18.9477 0.853638 19.0566 0.853638 19.1667C0.853638 19.2767 0.875419 19.3856 0.917726 19.4871C0.960034 19.5887 1.02203 19.6809 1.10014 19.7583C1.178 19.8356 1.27035 19.8967 1.37188 19.9381C1.47341 19.9796 1.58213 20.0006 1.6918 20Z"
+                                    fill="#262626" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="swiper-btn swiper-button-prev">
+                        <div class="inner">
+                            <svg width="11" height="20" viewBox="0 0 11 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.30869 20C9.19901 20.0006 9.09029 19.9796 8.98876 19.9381C8.88723 19.8966 8.79488 19.8355 8.71702 19.7583L1.90869 12.95C1.52066 12.5629 1.2128 12.1031 1.00275 11.5969C0.792694 11.0907 0.68457 10.548 0.68457 9.99998C0.68457 9.45192 0.792694 8.90924 1.00275 8.40303C1.2128 7.89683 1.52066 7.43703 1.90869 7.04998L8.71702 0.241658C8.79472 0.163959 8.88696 0.102325 8.98848 0.0602752C9.09 0.018225 9.1988 -0.00341797 9.30869 -0.00341797C9.41857 -0.00341797 9.52737 0.018225 9.62889 0.0602752C9.73041 0.102325 9.82265 0.163959 9.90035 0.241658C9.97805 0.319357 10.0397 0.411599 10.0817 0.513117C10.1238 0.614635 10.1454 0.723442 10.1454 0.833324C10.1454 0.943207 10.1238 1.05201 10.0817 1.15353C10.0397 1.25505 9.97805 1.34729 9.90035 1.42499L3.09202 8.23332C2.62385 8.70207 2.36088 9.33748 2.36088 9.99998C2.36088 10.6625 2.62385 11.2979 3.09202 11.7666L9.90035 18.575C9.97846 18.6524 10.0405 18.7446 10.0828 18.8462C10.1251 18.9477 10.1469 19.0566 10.1469 19.1666C10.1469 19.2766 10.1251 19.3856 10.0828 19.4871C10.0405 19.5887 9.97846 19.6808 9.90035 19.7583C9.82248 19.8355 9.73014 19.8966 9.62861 19.9381C9.52708 19.9796 9.41836 20.0006 9.30869 20Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination2"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Beyond School area end -->
+        <!-- deleted parts May be used in future for academic video content and expert teachers part refer page popularclasses&expertTeacher.html-->
+        <!-- event area start -->
+        <section class="rts-event-area rts-section-gapTop">
+            <div class="container">
+                <div class="section-title-area text-center">
+                    <p class="pre-title justify-content-center"><img src="assets/images/banner/title-img.svg"
+                            alt="">Event
+                    </p>
+                    <h2 class="section-title">Upcoming Events</h2>
+                    <p class="desc">Live & Happening- A Doorway to Empowerment</p>
+                </div>
+                <div class="section-inner">
+                    <div class="row g-5">
+                        <div class="col-lg-6">
+                            <div class="event-wrapper">
+                                <div class="wrapper-inner bg-one">
+                                    <div class="date">
+                                        <span>7</span>
+                                        September
+                                        <img src="assets/images/events/01.png" width="132" alt="" class="shape">
+                                    </div>
+                                    <div class="content">
+                                        <a href="program-details.html">
+                                            <h4 class="title">Public Speaking (Grade 6-8)</h4>
+                                            <ul class="meta-wrapper">
+                                                <li><i class="fa-regular fa-clock"></i>7pm -8.30pm</li>
+                                                <li><i class="fa-light fa-location-dot"></i>Weekends Offline @Library
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                    <div class="shape-icon"><img src="assets/images/events/event-blink.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="event-wrapper two">
+                                <div class="wrapper-inner bg-two">
+                                    <div class="date">
+                                        <span>2</span>
+                                        October
+                                        <img src="assets/images/events/01.png" width="132" alt="" class="shape">
+                                    </div>
+                                    <div class="content">
+                                        <a href="program-details.html">
+                                            <h4 class="title">A World of Stories Awaits (Grade 4-6)</h4>
+                                        </a>
+                                        <ul class="meta-wrapper">
+                                            <li><i class="fa-regular fa-clock"></i>10 Am - 11.30 Am</li>
+                                            <li><i class="fa-light fa-location-dot"></i>Online Event</li>
+                                        </ul>
+                                    </div>
+                                    <div class="shape-icon"><img src="assets/images/events/event-blink.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="event-wrapper three">
+                                <div class="wrapper-inner bg-four">
+                                    <div class="date">
+                                        <span>12</span>
+                                        October
+                                        <img src="assets/images/events/01.png" width="132" alt="" class="shape">
+                                    </div>
+                                    <div class="content">
+                                        <a href="program-details.html">
+                                            <h4 class="title">A World of Stories Awaits (Grade 2-4)</h4>
+                                        </a>
+                                        <ul class="meta-wrapper">
+                                            <li><i class="fa-regular fa-clock"></i>4pm-5.30pm</li>
+                                            <li><i class="fa-light fa-location-dot"></i>Online Event</li>
+                                        </ul>
+                                    </div>
+                                    <div class="shape-icon"><img src="assets/images/events/event-blink.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="event-wrapper four">
+                                <div class="wrapper-inner bg-three">
+                                    <div class="date">
+                                        <span>19</span>
+                                        April
+                                        <img src="assets/images/events/01.png" width="132" alt="" class="shape">
+                                    </div>
+                                    <div class="content">
+                                        <a href="program-details.html">
+                                            <h4 class="title">World Kids Day</h4>
+                                        </a>
+                                        <ul class="meta-wrapper">
+                                            <li><i class="fa-regular fa-clock"></i>9:00 Am - 12:00 Pm</li>
+                                            <li><i class="fa-light fa-location-dot"></i>55 Clark St, Brooklyn, NY 11201,
+                                                USA
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="shape-icon"><img src="assets/images/events/event-blink.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- no brands so removing. want this look out for popularclasses&ExpertTeachers.html page to include branding in future-->
+                <!-- event area end -->
+                <!-- testimonials area start -->
+                <section class="rts-testimonials-area v-2">
+                    <div class="container">
+                        <div class="section-title-area text-center">
+                            <p class="pre-title justify-content-center"><img src="assets/images/banner/title-img.svg"
+                                    alt="">Testimonials</p>
+                            <h2 class="section-title">What members Say About Us</h2>
+                            <p class="desc">The Learnings and happiness of students are at the heart <br> of everything
+                                we
+                                do. But don't just take our word</p>
+                        </div>
+                        <div class="slider-inner">
+                            <div class="swiper mySwiper-category-1 swiper-data" data-swiper='{
+                            "spaceBetween":30,
+                            "slidesPerView":3,
+                            "loop": true,
+                            "speed": 1500,
+                            "navigation":{
+                                "nextEl":".swiper-button-next3",
+                                "prevEl":".swiper-button-prev3"
+                            },
+                            "autoplay":{
+                                "delay":"4000"
+                            },
+                            "breakpoints":{
+                            "0":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "320":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "480":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "640":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "840":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "1140":{
+                                "slidesPerView":1,
+                                "spaceBetween":30}
+                            }
+                        }'>
+                                <div class="swiper-wrapper">
+                                    <!-- single swiper style -->
+                                    <div class="swiper-slide">
+                                        <div class="testimonials-wrapper">
+                                            <div class="wrapper-inner">
+                                                <div class="content">
+                                                    <div class="author-image mb--30">
+                                                        <img src="assets/images/about/about-author.png" width="72"
+                                                            alt="image of reviewer">
+                                                    </div>
+                                                    <h4 class="author">Kiruthika Srinivasan</h4>
+                                                    <p class="desig">Library Member</p>
+                                                    <p class="desc">"Good collection of books. Lots of activities
+                                                        planned
+                                                        for kids, which keeps them engaged and sharpen their skills.
+                                                        Librarian is a passionate reader, tutor whose prime motive is to
+                                                        encourage kids and people to cultivate the wonderful habit of
+                                                        reading."</p>
+                                                    <ul class="star-rating-area">
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-light fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="testimonials-shape-image">
+                                                    <div class="shape one"><img src="assets/images/banner/shape/13.svg"
+                                                            alt="shape_image"></div>
+                                                    <div class="shape two"><img src="assets/images/banner/shape/14.svg"
+                                                            alt="shape_image"></div>
+                                                    <div class="shape three"><img
+                                                            src="assets/images/banner/shape/15.svg" alt="shape_image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- single swiper style -->
+                                    <!-- single swiper style -->
+                                    <div class="swiper-slide">
+                                        <div class="testimonials-wrapper">
+                                            <div class="wrapper-inner">
+                                                <div class="content">
+                                                    <div class="author-image mb--30">
+                                                        <img src="assets/images/about/about-testimonial-ramya.jpeg"
+                                                            style="border-radius: 50%;" width="72"
+                                                            alt="image of reviewer">
+                                                    </div>
+                                                    <h4 class="author">Ramya</h4>
+                                                    <p class="desig">Parent and Member</p>
+                                                    <p class="desc">"Very good collection of books with cleanliness all
+                                                        around the library. It's a good place for students to gain
+                                                        knowledge"</p>
+                                                    <ul class="star-rating-area">
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-light fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="testimonials-shape-image">
+                                                    <div class="shape one"><img src="assets/images/banner/shape/13.svg"
+                                                            alt="shape_image"></div>
+                                                    <div class="shape two"><img src="assets/images/banner/shape/14.svg"
+                                                            alt="shape_image"></div>
+                                                    <div class="shape three"><img
+                                                            src="assets/images/banner/shape/15.svg" alt="shape_image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- single swiper style -->
+                                    <!-- single swiper style -->
+                                    <div class="swiper-slide">
+                                        <div class="testimonials-wrapper">
+                                            <div class="wrapper-inner">
+                                                <div class="content">
+                                                    <div class="author-image mb--30">
+                                                        <img src="assets/images/about/about-testimonial-janani.jpeg"
+                                                            style="border-radius: 50%;" width="72"
+                                                            alt="image of reviewer">
+                                                    </div>
+                                                    <h4 class="author">Lakshmi</h4>
+                                                    <p class="desig">Parent of 6 year old</p>
+                                                    <p class="desc">"My 6 year old son enjoys the activities. The place
+                                                        has
+                                                        good collection of books to keep the children engaged. Looking
+                                                        forward to more such weekly activities from the Book Buddy team
+                                                        😀"
+                                                    </p>
+                                                    <ul class="star-rating-area">
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                                                        </li>
+                                                        <li><a href="#"><i class="fa-light fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="testimonials-shape-image">
+                                                    <div class="shape one"><img src="assets/images/banner/shape/13.svg"
+                                                            alt="shape_image"></div>
+                                                    <div class="shape two"><img src="assets/images/banner/shape/14.svg"
+                                                            alt="shape_image"></div>
+                                                    <div class="shape three"><img
+                                                            src="assets/images/banner/shape/15.svg" alt="shape_image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-btn swiper-button-next3">
+                                <div class="inner">
+                                    <svg width="11" height="20" viewBox="0 0 11 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1.6918 20C1.80148 20.0006 1.91019 19.9796 2.01173 19.9381C2.11326 19.8967 2.2056 19.8356 2.28347 19.7583L9.0918 12.95C9.47983 12.5629 9.78769 12.1032 9.99774 11.5969C10.2078 11.0907 10.3159 10.5481 10.3159 10C10.3159 9.45194 10.2078 8.90926 9.99774 8.40305C9.78769 7.89685 9.47983 7.43705 9.0918 7.05L2.28347 0.241678C2.20577 0.163979 2.11353 0.102345 2.01201 0.0602948C1.91049 0.0182446 1.80169 -0.00339842 1.6918 -0.00339842C1.58192 -0.00339842 1.47311 0.0182446 1.3716 0.0602948C1.27008 0.102345 1.17784 0.163979 1.10014 0.241678C1.02244 0.319376 0.960803 0.411618 0.918753 0.513136C0.876703 0.614655 0.85506 0.723461 0.85506 0.833344C0.85506 0.943226 0.876703 1.05203 0.918753 1.15355C0.960803 1.25507 1.02244 1.34731 1.10014 1.42501L7.90847 8.23333C8.37664 8.70209 8.6396 9.3375 8.6396 10C8.6396 10.6625 8.37664 11.2979 7.90847 11.7667L1.10014 18.575C1.02203 18.6525 0.960034 18.7446 0.917726 18.8462C0.875419 18.9477 0.853638 19.0566 0.853638 19.1667C0.853638 19.2767 0.875419 19.3856 0.917726 19.4871C0.960034 19.5887 1.02203 19.6809 1.10014 19.7583C1.178 19.8356 1.27035 19.8967 1.37188 19.9381C1.47341 19.9796 1.58213 20.0006 1.6918 20Z"
+                                            fill="#262626" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="swiper-btn swiper-button-prev3">
+                                <div class="inner">
+                                    <svg width="11" height="20" viewBox="0 0 11 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.30869 20C9.19901 20.0006 9.09029 19.9796 8.98876 19.9381C8.88723 19.8966 8.79488 19.8355 8.71702 19.7583L1.90869 12.95C1.52066 12.5629 1.2128 12.1031 1.00275 11.5969C0.792694 11.0907 0.68457 10.548 0.68457 9.99998C0.68457 9.45192 0.792694 8.90924 1.00275 8.40303C1.2128 7.89683 1.52066 7.43703 1.90869 7.04998L8.71702 0.241658C8.79472 0.163959 8.88696 0.102325 8.98848 0.0602752C9.09 0.018225 9.1988 -0.00341797 9.30869 -0.00341797C9.41857 -0.00341797 9.52737 0.018225 9.62889 0.0602752C9.73041 0.102325 9.82265 0.163959 9.90035 0.241658C9.97805 0.319357 10.0397 0.411599 10.0817 0.513117C10.1238 0.614635 10.1454 0.723442 10.1454 0.833324C10.1454 0.943207 10.1238 1.05201 10.0817 1.15353C10.0397 1.25505 9.97805 1.34729 9.90035 1.42499L3.09202 8.23332C2.62385 8.70207 2.36088 9.33748 2.36088 9.99998C2.36088 10.6625 2.62385 11.2979 3.09202 11.7666L9.90035 18.575C9.97846 18.6524 10.0405 18.7446 10.0828 18.8462C10.1251 18.9477 10.1469 19.0566 10.1469 19.1666C10.1469 19.2766 10.1251 19.3856 10.0828 19.4871C10.0405 19.5887 9.97846 19.6808 9.90035 19.7583C9.82248 19.8355 9.73014 19.8966 9.62861 19.9381C9.52708 19.9796 9.41836 20.0006 9.30869 20Z"
+                                            fill="white" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- testimonials area end -->
+
+                <!-- blog area start -->
+                <section class="rts-blog-area rts-section-gap">
+                    <div class="container">
+                        <div class="section-title-area text-center">
+                            <p class="pre-title justify-content-center"><img src="assets/images/banner/title-img.svg"
+                                    alt="">Blog & News</p>
+                            <h2 class="section-title">Beyond the Book</h2>
+                            <h6 class="desc">We go beyond the pages to bring you expert advice, helpful tips, <br> and
+                                fascinating information on a wide range of topics.</h6>
+                        </div>
+                        <div class="slider-inner">
+                            <div class="swiper mySwiper-category-1 swiper-data" data-swiper='{
+                            "spaceBetween":30,
+                            "slidesPerView":3,
+                            "loop": true,
+                            "speed": 1500,
+                            "pagination":{
+                                "el": ".swiper-pagination4",
+                                "clickable": "true"
+                            },
+                            "autoplay":{
+                                "delay":"4500"
+                            },
+                            "breakpoints":{
+                            "0":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "320":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "480":{
+                                "slidesPerView":1,
+                                "spaceBetween":30},
+                            "768":{
+                                "slidesPerView":2,
+                                "spaceBetween":30},
+                            "840":{
+                                "slidesPerView":2,
+                                "spaceBetween":30},
+                            "1140":{
+                                "slidesPerView":3,
+                                "spaceBetween":30}
+                            }
+                        }'>
+                                <div class="swiper-wrapper">
+                                    <!-- single swiper style -->
+                                    <div class="swiper-slide">
+                                        <div class="blog-wrapper">
+                                            <div class="wrapper-inner">
+                                                <div class="image">
+                                                    <img src="assets/images/blog/blog-01.jpg" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="blog-details.html">How to spark
+                                                            passion-led,
+                                                            interest-based creativity.</a></h4>
+                                                    <ul class="meta-wrapper">
+                                                        <li class="wrapper-list">
+                                                            <div class="icon">
+                                                                <img src="assets/images/icon/14.svg" alt="">
+                                                            </div>
+                                                            <p class="desc">28 December </p>
+                                                        </li>
+                                                        <li class="wrapper-list">
+                                                            <div class="icon">
+                                                                <img src="assets/images/icon/15.svg" alt="">
+                                                            </div>
+                                                            <p class="desc">24k View</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- single swiper style -->
+                                    <!-- single swiper style -->
+                                    <div class="swiper-slide">
+                                        <div class="blog-wrapper two">
+                                            <div class="wrapper-inner">
+                                                <div class="image">
+                                                    <img src="assets/images/blog/blog-02.jpg" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="blog-details.html">Ways to Create A
+                                                            Montessori
+                                                            Home Environment</a></h4>
+                                                    <ul class="meta-wrapper">
+                                                        <li class="wrapper-list">
+                                                            <div class="icon">
+                                                                <img src="assets/images/icon/14.svg" alt="">
+                                                            </div>
+                                                            <p class="desc">28 December </p>
+                                                        </li>
+                                                        <li class="wrapper-list">
+                                                            <div class="icon">
+                                                                <img src="assets/images/icon/15.svg" alt="">
+                                                            </div>
+                                                            <p class="desc">24k View</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- single swiper style -->
+                                    <!-- single swiper style -->
+                                    <div class="swiper-slide">
+                                        <div class="blog-wrapper three">
+                                            <div class="wrapper-inner">
+                                                <div class="image">
+                                                    <img src="assets/images/blog/blog-03.jpg" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="blog-details.html">Outschool mom helped
+                                                            her
+                                                            son discover his superpower.</a></h4>
+                                                    <ul class="meta-wrapper">
+                                                        <li class="wrapper-list">
+                                                            <div class="icon">
+                                                                <img src="assets/images/icon/14.svg" alt="">
+                                                            </div>
+                                                            <p class="desc">28 December </p>
+                                                        </li>
+                                                        <li class="wrapper-list">
+                                                            <div class="icon">
+                                                                <img src="assets/images/icon/15.svg" alt="">
+                                                            </div>
+                                                            <p class="desc">24k View</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- single swiper style -->
+                                </div>
+                            </div>
+                            <div class="swiper-pagination4"></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- blog area end -->
+
+                <!-- footer call to action area start -->
+
+                <!-- footer call to action area start -->
+                <div class="rts-footer-area section-bg2">
+                    <div class="container">
+                        <div class="footer-top">
+                            <form action="#">
+                                <h3 class="form-title">Don’t Miss Awesome Stories From us</h3>
+                                <div class="form-inner">
+                                    <input type="email" name="Email" placeholder="Enter Your mail" required>
+                                    <button type="submit" class="rts-btn btn-primary border-radius">Subscribe to
+                                        Magazines/Newsletter</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row ptb--65">
+                            <div class="col-lg-12">
+                                <!-- footer main wrapper -->
+                                <div class="footer-one-main-wrapper">
+                                    <!-- single sized  footer  -->
+                                    <div class="footer-single-wized left-logo">
+                                        <div class="head">
+                                            <a href="index.html">
+                                                <img src="assets/images/logo/bookbuddy logo.JPG" alt="logo" width="60px"
+                                                    height="60px" loading="lazy">
+                                            </a>
+                                        </div>
+                                        <div class="body">
+                                            <p class="dsic">
+                                                We are passionate & dedicated to providing high-quality resources for
+                                                learners
+                                                of all backgrounds.
+                                            </p>
+                                            <ul class="wrapper-list">
+                                                <li><i class="fa-regular fa-location-dot"></i>No 1 Thiruvallur Street
+                                                    Gandhi
+                                                    Nagar Vadapalni Chennai </li>
+                                                <li><i class="fa-regular fa-phone"></i><a href="tel:+4733378901">+91
+                                                        9080759312</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- single sized  footer end -->
+                                    <!-- single sized  footer  -->
+                                    <div class="footer-single-wized">
+                                        <div class="head">
+                                            <h6 class="title">About Us</h6>
+                                        </div>
+                                        <div class="body">
+                                            <ul class="menu">
+                                                <li><a href="about.html">Our Mission</a></li>
+                                                <li><a href="become-instructor.html">Careers</a></li>
+                                                <li><a href="blog-left-sidebar.html">Blog</a></li>
+                                                <li><a href="event.html">Events</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- single sized  footer end -->
+                                    <!-- single sized  footer  -->
+                                    <div class="footer-single-wized">
+                                        <div class="head">
+                                            <h6 class="title">Our Courses</h6>
+                                        </div>
+                                        <div class="body">
+                                            <ul class="menu">
+                                                <li><a href="school-work.html">School Work</a></li>
+                                                <li><a href="beyond-school.html">Beyond School</a></li>
+                                                <li><a href="podcasts.html">Podcasts</a></li>
+                                                <li><a href="contact.html">Contact Us</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- single sized  footer end -->
+                                    <!-- single sized  footer  -->
+                                    <div class="footer-single-wized input-area">
+                                        <div class="head">
+                                            <h6 class="title">Recent Post</h6>
+                                        </div>
+                                        <div class="body">
+                                            <ul>
+                                                <li class="post-area">
+                                                    <div class="image">
+                                                        <a href="#">
+                                                            <img src="assets/images/blog/blog-07.jpg" width="80" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="content">
+                                                        <p class="date">August 21, 2025</p>
+                                                        <h6 class="post-title"><a href="#">Your Ears' Next Adventure:
+                                                                Dive
+                                                                into Book Buddy's Captivating Story Podcasts!</a></h6>
+                                                    </div>
+                                                </li>
+                                                <li class="post-area">
+                                                    <div class="image">
+                                                        <a href="#">
+                                                            <img src="assets/images/blog/blog-08.jpg" width="80" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="content">
+                                                        <p class="date">August 15, 2025</p>
+                                                        <h6 class="post-title"><a href="#">Beyond the Bell: How Stories
+                                                                at
+                                                                Book Buddy Build Lifelong Learners (Not Just Good
+                                                                Grades!)</a></h6>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- single sized  footer end -->
+                                </div>
+                                <!-- footer main wrapper end -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright-area-one-border">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="copyright-area-one">
+                                        <p>Copyright © 2025 All Rights Reserved by Book Buddy</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer call to action area end -->
+                <!-- footer call to action area end -->
+
+                <!-- Modal -->
+                <div class="modal login-pupup-modal fade" id="exampleModal-login" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Hi, Welcome back!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" class="login-form">
+                                    <input type="text" placeholder="Username of Email Address" required>
+                                    <input type="password" placeholder="Password" required>
+                                    <div class="d-flex mb--20 align-items-center">
+                                        <input type="checkbox" id="examplecheck-modal">
+                                        <label for="examplecheck-modal">I agree to the terms of use and privacy
+                                            policy.</label>
+                                    </div>
+                                    <button type="submit" class="rts-btn btn-primary">Sign In</button>
+
+                                    <p class="dont-acc mt--20">Dont Have an Account? <a
+                                            href="registration.html">Sign-up</a>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- header style two -->
+                <div id="side-bar" class="side-bar header-two">
+                    <button class="close-icon-menu"><i class="far fa-times"></i></button>
+                    <!-- inner menu area desktop start -->
+                    <div class="inner-main-wrapper-desk">
+                        <div class="inner-content">
+                            <h4 class="title">Book Buddy</h4>
+                            <p class="disc">
+
+                            </p>
+                            <div class="footer">
+                                <h4 class="title">Love stories and wish you could contribute?</h4>
+                                <a href="contact.html" class="rts-btn btn-primary">Let's talk</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- mobile menu area start -->
+                    <div class="mobile-menu-main">
+                        <nav class="nav-main mainmenu-nav mt--30">
+                            <ul class="mainmenu metismenu" id="mobile-menu-active">
+                                <li class="has-droupdown">
+                                    <a href="index.html" class="main">Home</a>
+                                    <!--<ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="index.html">Home 01</a></li>
+                           <li><a class="mobile-menu-link" href="index-two.html">Home 02</a></li>
+                            <li><a class="mobile-menu-link" href="index-three.html">Home 03</a></li>
+                            <li><a class="mobile-menu-link" href="index-four.html">home 04</a></li>-->
+                            </ul>
+                            </li>
+                            <li class="has-droupdown">
+                                <a href="#" class="main">Pages</a>
+                                <ul class="submenu mm-collapse">
+                                    <li><a class="mobile-menu-link" href="about.html">About Us</a></li>
+                                    <!--<li><a class="mobile-menu-link" href="team.html">Team</a></li>
+                            <li><a class="mobile-menu-link" href="team-details.html">Team Details</a></li>-->
+                                    <li><a class="mobile-menu-link" href="event.html">Event</a></li>
+                                    <li><a class="mobile-menu-link" href="event-details.html">Event Details</a></li>
+                                    <!--<li><a class="mobile-menu-link" href="program-details.html">Program Details</a></li>
+                            <li><a class="mobile-menu-link" href="pricing.html">Pricing</a></li>
+                            <li><a class="mobile-menu-link" href="pricing-two.html">Pricing Two</a></li>-->
+                                </ul>
+                            </li>
+                            <li class="has-droupdown">
+                                <a href="#" class="main">Courses</a>
+                                <ul class="submenu mm-collapse">
+                                    <li><a class="mobile-menu-link" href="school-work.html">School Work</a></li>
+                                    <li><a class="mobile-menu-link" href="beyond-school.html">Beyond School</a></li>
+                                    <li><a class="mobile-menu-link" href="podcasts.html">Podcasts</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-droupdown">
+                                <a href="blog-left-sidebar.html" class="main">Blog</a>
+                                <!--<ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="blog.html">Blog</a></li>
+                            <li><a class="mobile-menu-link" href="blog-grid.html">Blog Grid</a></li>
+                            <li><a class="mobile-menu-link" href="blog-list.html">Blog List</a></li>
+                            <li><a class="mobile-menu-link" href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                            <li><a class="mobile-menu-link" href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                            <li><a class="mobile-menu-link" href="blog-details.html">Blog Details</a></li>-->
+                                </ul>
+                            </li>
+                            <li class="menu-item">
+                                <a href="contact.html" class="main">Contact</a>
+                            </li>
+                            </ul>
+                        </nav>
+
+                        <div class="buttons-area">
+                            <a href="#" class="rts-btn btn-border">Log In</a>
+                            <a href="#" class="rts-btn btn-primary">Sign Up</a>
+                        </div>
+
+                        <div class="rts-social-style-one pl--20 mt--50">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- mobile menu area end -->
+                </div>
+                <!-- header style two End -->
+
+                <div id="preloader" class="preloader">
+                    <div class="animation-preloader">
+                        <div class="txt-loading">
+                            <span data-text-preloader="B" class="letters-loading first">
+                                B
+                            </span>
+                            <span data-text-preloader="O" class="letters-loading first">
+                                O
+                            </span>
+                            <span data-text-preloader="O" class="letters-loading first">
+                                O
+                            </span>
+                            <span data-text-preloader="K" class="letters-loading first">
+                                K
+                            </span>
+                            <span data-text-preloader="B" class="letters-loading first">
+                                B
+                            </span>
+                            <span data-text-preloader="U" class="letters-loading">
+                                U
+                            </span>
+                            <span data-text-preloader="D" class="letters-loading">
+                                D
+                            </span>
+                            <span data-text-preloader="D" class="letters-loading">
+                                D
+                            </span>
+                            <span data-text-preloader="Y" class="letters-loading">
+                                Y
+                            </span>
+                        </div>
+                        <p class="text-center">Loading</p>
+                    </div>
+                    <div class="loader">
+                        <div class="row">
+                            <div class="col-3 loader-section section-left">
+                                <div class="bg"></div>
+                            </div>
+                            <div class="col-3 loader-section section-left">
+                                <div class="bg"></div>
+                            </div>
+                            <div class="col-3 loader-section section-right">
+                                <div class="bg"></div>
+                            </div>
+                            <div class="col-3 loader-section section-right">
+                                <div class="bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- rts backto top start -->
+                <div class="progress-wrap">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                            style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+                        </path>
+                    </svg>
+                </div>
+                <!-- rts backto top end -->
+
+                <!-- offcanvase search -->
+                <div class="search-input-area">
+                    <div class="container">
+                        <div class="search-input-inner">
+                            <div class="input-div">
+                                <input class="search-input autocomplete" type="text"
+                                    placeholder="Search by keyword or #">
+                                <button><i class="far fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
+                </div>
+                <!-- offcanvase search -->
+                <div id="anywhere-home" class="">
+                </div>
+
+
+    </main>
+
+    <!-- 🔒 Sign In Required Modal -->
+    <div class="modal fade" id="signinRequiredModal" tabindex="-1" aria-labelledby="signinRequiredModalLabel"
+        aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="fas fa-user-lock"></i>
+                    <h5 class="modal-title" id="signinRequiredModalLabel">Sign In Required</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>To access this content, please sign in using your Google account.</p>
+                    <button id="signin-required-btn" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt me-2"></i>Sign In with Google
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- all scripts -->
+    <!-- jquery min js -->
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <!-- jquery ui js -->
+    <script src="assets/js/vendor/jquery-ui.js"></script>
+    <!-- metismenu js -->
+    <script src="assets/js/vendor/metismenu.js"></script>
+    <!-- magnific popup js-->
+    <script src="assets/js/vendor/magnifying-popup.js"></script>
+    <!-- swiper JS 10.2.0 -->
+    <script src="assets/js/plugins/swiper.js"></script>
+    <!-- counterup js -->
+    <script src="assets/js/plugins/counterup.js"></script>
+    <!-- waypoint js -->
+    <script src="assets/js/vendor/waypoint.js"></script>
+    <!-- wow js -->
+    <script src="assets/js/vendor/waw.js"></script>
+    <!-- isotop mesonary -->
+    <script src="assets/js/plugins/isotop.js"></script>
+    <!-- jquery imageloaded -->
+    <script src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+    <!-- resize sensor js -->
+    <script src="assets/js/plugins/resizer-sensor.js"></script>
+    <!-- sticky sidebar -->
+    <script src="assets/js/plugins/sticky-sidebar.js"></script>
+    <!-- gsap twinmax js -->
+    <script src="assets/js/plugins/twinmax.js"></script>
+    <!-- chroma js -->
+    <script src="assets/js/vendor/chroma.min.js"></script>
+    <!-- bootstrap 5.0.2 -->
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <!-- dymanic Contact Form -->
+    <script src="assets/js/plugins/contact.form.js"></script>
+    <!-- calender js -->
+    <script src="assets/js/plugins/calender.js"></script>
+    <!-- main Js -->
+    <script src="assets/js/main.js"></script>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/trialclerk.js"></script>
+</body>
+
+</html>

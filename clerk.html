@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Buddy - Home</title>
+  <link rel="shortcut icon" href="assets/images/logo/bookbuddy logo.JPG" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/plugins/fontawesome-6.css">
+  <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #007bff;
+      padding: 15px 0;
+    }
+
+    .logo-area img {
+      border-radius: 10px;
+    }
+
+    .main-nav-one ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .main-nav-one a {
+      text-decoration: none;
+      font-weight: 500;
+      ;
+      transition: color 0.3s;
+    }
+
+    .main-nav-one a:hover {
+      color: #ffd700;
+    }
+
+    .header-user-info,
+    .auth-buttons {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-user-info img {
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      border: 2px solid #fff;
+    }
+
+    .auth-buttons button {
+      padding: 6px 15px;
+      font-weight: bold;
+    }
+
+    main {
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+  <!-- Clerk JS -->
+  <script async crossorigin="anonymous"
+    data-clerk-publishable-key="pk_test_cmVndWxhci10cm9sbC0yNi5jbGVyay5hY2NvdW50cy5kZXYk"
+    src="https://regular-troll-26.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js">
+    </script>
+</head>
+
+<body>
+
+ <body>
+
+  <header class="header-one header--sticky">
+    <div class="main-nav-one">
+
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="clerk.html" class="logo-area">
+          <img src="assets/images/logo/bookbuddy logo.JPG" alt="logo" width="60">
+        </a>
+        <nav>
+          <ul>
+            <a class="nav-link" href="index.html">Home</a>
+            <li class="has-dropdown">
+              <a class="nav-link" href="#">Pages</a>
+              <ul class="submenu">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="event.html">Event</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a class="nav-link" href="#">Courses</a>
+              <ul class="submenu">
+                <li><a href="schoolwork.html">School Work</a></li>
+                <li><a href="beyondschool.html">Beyond School</a></li>
+                <li><a href="podcasts.html">Podcasts</a></li>
+              </ul>
+            </li>
+            <a class="nav-link" href="blog-left-sidebar.html">Blog</a>
+            <li>
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div id="user-button-container"></div>
+
+        <div id="auth-buttons" style="display: none;">
+          <button id="sign-in-btn" class="btn btn-light btn-sm">Sign In</button>
+          <button id="sign-up-btn" class="btn btn-success btn-sm">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <body>
+
+  <header class="header-one header--sticky">
+    <div class="main-nav-one">
+
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="clerk.html" class="logo-area">
+          <img src="assets/images/logo/bookbuddy logo.JPG" alt="logo" width="60">
+        </a>
+        <nav>
+          <ul>
+            <a class="nav-link" href="index.html">Home</a>
+            <li class="has-dropdown">
+              <a class="nav-link" href="#">Pages</a>
+              <ul class="submenu">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="event.html">Event</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a class="nav-link" href="#">Courses</a>
+              <ul class="submenu">
+                <li><a href="schoolwork.html">School Work</a></li>
+                <li><a href="beyondschool.html">Beyond School</a></li>
+                <li><a href="podcasts.html">Podcasts</a></li>
+              </ul>
+            </li>
+            <a class="nav-link" href="blog-left-sidebar.html">Blog</a>
+            <li>
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div id="user-button-container"></div>
+
+        <div id="auth-buttons" style="display: none;">
+          <button id="sign-in-btn" class="btn btn-light btn-sm">Sign In</button>
+          <button id="sign-up-btn" class="btn btn-success btn-sm">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Welcome to Book Buddy!</h1>
+   
+  </main>
+  <script async crossorigin="anonymous"
+    data-clerk-publishable-key="pk_test_cmVndWxhci10cm9sbC0yNi5jbGVyay5hY2NvdW50cy5kZXYk"
+    src="https://regular-troll-26.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js">
+  </script>
+  <script src="/assets/js/clerk.js"></script>
+</body>
+
+</html>

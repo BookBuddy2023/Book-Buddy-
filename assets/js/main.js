@@ -1029,4 +1029,534 @@ document.addEventListener('DOMContentLoaded', () => {
         // I will not include it to keep the file concise, but this is where it goes.
     }
 });
+
+// for beyond school script
+
+/* === BOOK BUDDY BEYOND SCHOOL TAB LOGIC === */
+function initializeBeyondSchoolTabs() {
+    const tabs = document.querySelectorAll('.bb-anchor-nav a');
+    const contentSections = document.querySelectorAll('.bb-content-section');
+
+    // Function to handle tab switching
+    function switchBbTab(e) {
+        // Only run if the clicked element has the data-bb-target attribute
+        if (!e.currentTarget.hasAttribute('data-bb-target')) return;
+        
+        e.preventDefault(); 
+        
+        const targetTabId = e.currentTarget.getAttribute('data-bb-target');
+
+        // 1. Update the Navigation Links
+        tabs.forEach(tab => tab.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+
+        // 2. Hide all content sections
+        contentSections.forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // 3. Show the target content section
+        const targetSection = document.getElementById(targetTabId);
+        if (targetSection) {
+            targetSection.style.display = 'block';
+        }
+    }
+initializeBeyondSchoolPopups 
+    // Add event listeners to all tab links
+    tabs.forEach(tab => {
+        tab.addEventListener('click', switchBbTab);
+    });
+
+    // On page load, ensure the first tab is visible (in case JS loads slowly)
+    const initialTab = document.querySelector('.bb-anchor-nav a.active');
+    if (initialTab) {
+         const initialTabId = initialTab.getAttribute('data-bb-target');
+         const initialSection = document.getElementById(initialTabId);
+         if (initialSection) {
+             // Set the initial section to display: block;
+             initialSection.style.display = 'block';
+         }
+    }
+}
+
+// Call the initialization function when the document is ready
+document.addEventListener('DOMContentLoaded', initializeBeyondSchoolTabs);
+//pop up for beyond school begins
+
+/* === BOOK BUDDY BEYOND SCHOOL TAB LOGIC AND POP-UP MODAL === */
+
+// /* === BOOK BUDDY BEYOND SCHOOL TAB LOGIC AND POP-UP MODAL (FINAL VERSION) === */
+
+// --- 0. CONTENT DATA STRUCTURE (JSON) ---
+// This holds all the content for the modal layers.
+// --- BOOK VIEWER HTML TEMPLATE ---
+// Use template literals (backticks) to hold the multi-line HTML.
+const bookViewerHTML = `
+    <div class="bb-book-viewer-container">
+        <div class="book-container" id="bb-book-viewer">
+            <img src="https://via.placeholder.com/600x800/20AD96/ffffff?text=Book+Page+1" class="page active" data-page="1" alt="Page 1">
+            <img src="https://via.placeholder.com/600x800/20AD96/ffffff?text=Book+Page+2" class="page" data-page="2" alt="Page 2">
+            <img src="https://via.placeholder.com/600x800/20AD96/ffffff?text=Book+Page+3" class="page" data-page="3" alt="Page 3">
+            <img src="https://via.placeholder.com/600x800/20AD96/ffffff?text=Book+Page+4" class="page" data-page="4" alt="Page 4">
+            <img src="https://via.placeholder.com/600x800/20AD96/ffffff?text=Book+Page+5" class="page" data-page="5" alt="Page 5">
+            <img src="https://via.placeholder.com/600x800/20AD96/ffffff?text=Book+Page+6" class="page" data-page="6" alt="Page 6">
+            <img src="https://via.placeholder.com/600x800/20AD96/ffffff?text=Book+Page+7" class="page" data-page="7" alt="Page 7">
+            
+            <div class="controls">
+                <button id="prevBtn">⬅ Previous</button>
+                <button id="nextBtn">Next ➡</button>
+                <button id="endBtn" style="display:none;">🏁 End</button>
+                <button id="restartBtn" style="display:none;">🔄 Start Over</button>
+            </div>
+        </div>
+    </div>
+`;
+const bbContentData = {
+    'rc': {
+        title: "Reading Comprehension Resources",
+        levels: ['Novice', 'Beginner', 'Intermediate', 'Advance'],
+        // NOTE: 'offline' data is no longer strictly needed for modal logic
+        // but included for completeness if needed elsewhere.
+        offline: {
+            'Novice': [ /* ... download data ... */ ],
+        },
+        online: {
+            'Novice': [
+                { title: "Tiny Tales Quiz", time: "5 min", img: "https://via.placeholder.com/250x150/7763E5/ffffff?text=Novice+Quiz", content_id: "quiz-rc-1" }
+            ],
+            'Beginner': [
+                { title: "The Banyan Tree Adventure", time: "15 min", img: "https://via.placeholder.com/250x150/FFD335/262626?text=Beginner+Quiz", content_id: "quiz-rc-2" }
+            ],
+            'Intermediate': [
+                { title: "Mythology Short Story Test", time: "20 min", img: "https://via.placeholder.com/250x150/FF6D1C/ffffff?text=Intermediate+Test", content_id: "quiz-rc-3" }
+            ],
+            'Advance': [
+                { title: "Future Tech Article Review", time: "30 min", img: "https://via.placeholder.com/250x150/20AD96/ffffff?text=Advance+Review", content_id: "quiz-rc-4" }
+            ]
+        }
+    },
+    'lc': {
+        title: "Listening Comprehension Topics",
+        levels: ['Novice', 'Beginner', 'Intermediate'],
+        online: {
+            'Novice': [
+                { title: "Simple Dialogues", duration: "2 min", speaker: "Female", content_id: "lc-1" },
+                // ... other LC content ...
+            ],
+            // ... more levels ...
+        }
+    },
+    
+    'digital-library': {
+        title: "Digital Library Catalogue",
+        levels: ['Novice', 'Beginner', 'Intermediate'],
+        online: {
+            'Novice': [
+                { 
+                    title: "Book Buddy Goes Online", 
+                    author: "Book Buddy", 
+                    pages: "7", 
+                    content_id: "Book-Buddy-Goes-Online",
+                    // *** ADD THIS NEW ARRAY OF PAGE URLs ***
+                    pageUrls: [
+                        "/assets/digitalBooks/Book-Buddy-Goes-Online/page1.jpg",
+                        "/assets/digitalBooks/Book-Buddy-Goes-Online/page2.jpg",
+                        "/assets/digitalBooks/Book-Buddy-Goes-Online/page3.jpg",
+                        "/assets/digitalBooks/Book-Buddy-Goes-Online/page4.jpg",
+                        "/assets/digitalBooks/Book-Buddy-Goes-Online/page5.jpg",
+                        "/assets/digitalBooks/Book-Buddy-Goes-Online/page6.jpg",
+                        "/assets/digitalBooks/Book-Buddy-Goes-Online/page7.jpg",
+
+                        // ... add all pages for this book ...
+                    ]
+                },
+                { 
+                    title: "The Little Red Bus Story", 
+                    author: "B. Author", 
+                    pages: "8", 
+                    content_id: "book-red-bus",
+                    // *** ADD PAGE URLs FOR THE SECOND BOOK ***
+                    pageUrls: [
+                        "/assets/books/red-bus/cover.jpg",
+                        "/assets/books/red-bus/page_a.jpg",
+                        // ... add all pages for this second book ...
+                    ]
+                  },
+            ]
+            // ... more levels/genres ...
+        }
+    }
+};
+
+// --- 1. DOM SELECTORS & STATE ---
+const modal = document.getElementById('bb-action-modal');
+const modalTitle = document.getElementById('bb-modal-title');
+const modalBody = document.querySelector('.bb-modal-body');
+const modalNavFooter = document.getElementById('bb-modal-navigation');
+
+// Global state to track modal level/context
+let currentModalContext = {
+    section: null, 
+    mode: null,    
+    level: null,   
+    history: []    // Tracks previous views for the 'Back' button
+};
+
+
+// --- 2. MODAL CORE CONTROLS (FIXED AND IMPROVED) ---
+
+function closeModal() {
+    if (modal) {
+        modal.style.display = 'none';
+        // Reset state after closing
+        currentModalContext = { section: null, mode: null, level: null, history: [] }; 
+    }
+}
+
+function goBack() {
+    if (currentModalContext.history.length === 0) {
+        // If no history left, close the modal completely
+        return closeModal();
+    }
+    
+    // Get the last state and remove it from history
+    const lastState = currentModalContext.history.pop();
+    
+    // Check the layer of the previous state and call the corresponding function
+    // Since we start from Layer 2 now, the history layer 1 state will jump back to layer 2
+    if (lastState.layer === 1) {
+        // This is the starting point in the new flow (level selection)
+        // We call showLayer2 with the current online mode
+        showLayer2(currentModalContext.section, 'online');
+    } else if (lastState.layer === 2) {
+        // This state means we were on Layer 3 (Topic List) before
+        showLayer2(lastState.section, lastState.mode); 
+    } else if (lastState.layer === 3) {
+        // This state means we were on Layer 4 (Quiz Content) before
+        showLayer3_ContentList(lastState.section, lastState.mode, lastState.level);
+    }
+}
+
+
+// --- 3. LAYER FUNCTIONS (Starting point is now Layer 2) ---
+
+/** Layer 2 (New Starting Point): Shows the level selection (Novice, Beginner, etc.). */
+function showLayer2(sectionKey, mode) {
+    // Save current state to history before moving forward (only if we're not at start)
+    if (currentModalContext.section) {
+         currentModalContext.history.push({ layer: 1, section: sectionKey, mode: null, level: null });
+    }
+    
+    currentModalContext.section = sectionKey;
+    currentModalContext.mode = mode; // This will always be 'online' in this new flow
+    
+    const data = bbContentData[sectionKey];
+    modalTitle.textContent = `${data.title} - Select Interactive Level`;
+    
+    let levelButtonsHTML = data.levels.map(level => 
+        `<button class="bb-level-button" data-level="${level}">${level}</button>`
+    ).join('');
+    
+    modalBody.innerHTML = `<p style="text-align:center; margin-bottom: 20px; color:#aaa;"></p><div class="bb-level-selector">${levelButtonsHTML}</div>`;
+    
+    // Set up Back button (points to goBack function)
+    modalNavFooter.innerHTML = '<button class="bb-back-button bb-level-button">← Close</button>';
+    document.querySelector('.bb-back-button').onclick = closeModal; // Back button simply closes here
+    
+    // Attach listeners for level selection
+    modalBody.querySelectorAll('.bb-level-button').forEach(btn => {
+        btn.onclick = () => showLayer3_ContentList(sectionKey, mode, btn.getAttribute('data-level'));
+    });
+
+    modal.style.display = 'block';
+}
+
+
+/** Layer 3: Shows the list of interactive content cards for the selected level. */
+function showLayer3_ContentList(sectionKey, mode, level) {
+    // Save current state to history before moving forward
+    currentModalContext.history.push({ layer: 2, section: sectionKey, mode: mode, level: null });
+    
+    currentModalContext.level = level;
+    const content = bbContentData[sectionKey].online[level];
+    modalTitle.textContent = `${bbContentData[sectionKey].title}: ${level} Topics`;
+    
+    let cardsHTML = '';
+    let listenerTarget = null; // Used to identify which element to attach the final click to
+
+    if (sectionKey === 'lc') {
+        // --- BUILD LC PASSAGE CARDS ---
+        cardsHTML = content.map(item => `
+            <div class="bb-lc-card bb-card-trigger" data-content-id="${item.content_id}">
+                <h4>${item.title}</h4>
+                <p>Duration: ${item.duration} | Speaker: ${item.speaker}</p>
+                <button class="btn-action btn-small">Listen Now</button>
+            </div>
+        `).join('');
+        listenerTarget = '.bb-lc-card';
+        
+    } else if (sectionKey === 'digital-library') {
+        // --- BUILD DIGITAL LIBRARY (BOOK) CARDS ---
+        cardsHTML = content.map(item => `
+            <div class="bb-book-card bb-card-trigger" data-content-id="${item.content_id}">
+                <img src="${item.img}" alt="${item.title}">
+                <h4>${item.title}</h4>
+            </div>
+        `).join('');
+        listenerTarget = '.bb-book-card';
+        
+    } else { // Defaults to RC cards (sectionKey === 'rc')
+        // --- BUILD RC QUIZ CARDS (Existing Logic) ---
+        cardsHTML = content.map(item => `
+            <div class="bb-rc-card bb-card-trigger" data-content-id="${item.content_id}">
+                <img src="${item.img}" alt="${item.title}">
+                <h4>${item.title}</h4>
+                <p class="read-time">Avg. Read Time: ${item.time}</p>
+            </div>
+        `).join('');
+        listenerTarget = '.bb-rc-card';
+    }
+
+    modalBody.innerHTML = `<div class="bb-card-grid">${cardsHTML}</div>`;
+    
+    // Set up Back button
+    modalNavFooter.innerHTML = '<button class="bb-back-button bb-level-button">← Back to Levels</button>';
+    document.querySelector('.bb-back-button').onclick = goBack;
+
+    // Attach listener for clicking ANY of the newly built content cards
+    modalBody.querySelectorAll(listenerTarget).forEach(card => {
+        card.onclick = () => showLayer4_Content(card.getAttribute('data-content-id'));
+    });
+}
+
+//**book viewer function code *//
+
+/**
+ * Attaches the page-flipping logic to the book viewer elements 
+ * dynamically inserted into the modal body.
+ */
+function initializeBookViewerLogic() {
+    const pages = document.querySelectorAll('#bb-book-viewer .page');
+    if (pages.length === 0) return; // Exit if pages aren't found
+
+    let currentPage = 0;
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const endBtn = document.getElementById('endBtn');
+    const restartBtn = document.getElementById('restartBtn');
+
+  function updateControls() {
+  // Hide Previous button on the first page
+  prevBtn.style.display = currentPage === 0 ? 'none' : 'inline-block';
+  
+  // Hide Next, Show End/Restart on the last page
+  const isLastPage = currentPage === pages.length - 1;
+  nextBtn.style.display = isLastPage ? 'none' : 'inline-block';
+  endBtn.style.display = isLastPage ? 'inline-block' : 'none';
+  restartBtn.style.display = isLastPage ? 'inline-block' : 'none';
+}
+
+    function showPage(newPage, direction) {
+        if (newPage < 0 || newPage >= pages.length) return;
+
+        const current = pages[currentPage];
+        const next = pages[newPage];
+
+        pages.forEach(p => p.classList.remove('flip-next', 'flip-prev', 'active'));
+
+        if (direction === 'next') {
+            current.classList.add('flip-next');
+        } else {
+            current.classList.add('flip-prev');
+        }
+
+        setTimeout(() => {
+            next.classList.add('active');
+            currentPage = newPage;
+            updateControls();
+        }, 400); // Wait for CSS transition (adjust if needed)
+    }
+
+    // Attach button handlers
+    nextBtn.addEventListener('click', () => {
+        showPage(currentPage + 1, 'next');
+    });
+
+    prevBtn.addEventListener('click', () => {
+        showPage(currentPage - 1, 'prev');
+    });
+
+    endBtn.addEventListener('click', () => {
+        alert("🎉 End of Story! Thanks for reading!");
+    });
+
+    restartBtn.addEventListener('click', () => {
+        pages.forEach(p => p.classList.remove('flip-next', 'flip-prev', 'active'));
+        pages[0].classList.add('active');
+        currentPage = 0;
+        updateControls();
+    });
+
+    // Initialize controls
+    updateControls();
+}
+//**  book viewer function code ends **/
+/** Layer 4: Shows the actual Quiz/Module content (Final View) */
+function showLayer4_Content(contentId) {
+    // 1. Update Context and History (Logic remains the same)
+    currentModalContext.history.push({ 
+        layer: 3, 
+        section: currentModalContext.section, 
+        mode: currentModalContext.mode, 
+        level: currentModalContext.level 
+    });
+    
+    // 2. Setup Variables
+    const currentSection = currentModalContext.section;
+    const currentLevel = currentModalContext.level;
+    let contentHTML = '';
+
+    if (currentSection === 'digital-library') {
+        
+        // *** DYNAMIC BOOK FINDER ***
+        // Find the specific book object using the contentId
+        const bookList = bbContentData[currentSection].online[currentLevel];
+        const selectedBook = bookList.find(book => book.content_id === contentId);
+        
+        if (!selectedBook) {
+            modalBody.innerHTML = `<p style="color:red;">Error: Book not found for ID ${contentId}</p>`;
+            return;
+        }
+
+        modalTitle.textContent = `Reading: ${selectedBook.title}`;
+        
+        // *** DYNAMICALLY GENERATE IMG TAGS ***
+        let pageImagesHTML = selectedBook.pageUrls.map((url, index) => {
+            // First page gets the 'active' class
+            const activeClass = index === 0 ? ' active' : '';
+            return `<img src="${url}" class="page${activeClass}" data-page="${index}" alt="Page ${index + 1}">`;
+        }).join('');
+
+        // --- DYNAMIC BOOK VIEWER MODE ---
+        contentHTML = `
+            <div class="bb-book-viewer-container">
+                <div class="book-container" id="bb-book-viewer">
+                    ${pageImagesHTML}
+                    
+                    <div class="controls">
+                        <button id="prevBtn">⬅ Previous</button>
+                        <button id="nextBtn">Next ➡</button>
+                        <button id="endBtn" style="display:none;">🏁 End</button>
+                        <button id="restartBtn" style="display:none;">🔄 Start Over</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+    } else {
+        // --- DEFAULT QUIZ/MODULE MODE (RC, LC, etc.) ---
+        contentHTML = `
+            <div class="bb-quiz-content">
+                <h3 style="color: var(--color-primary);">Module Loading: ${currentSection}</h3>
+                <p>Content ID: ${contentId} is now active.</p>
+                <div style="height: 300px; background-color: #333; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: #bbb;">(Simulated Iframe/Quiz Content Area)</p>
+                </div>
+                <button class="btn-action" style="width: auto; margin: 20px auto;">Complete Module</button>
+            </div>
+        `;
+    }
+
+    // 3. Insert HTML
+    modalBody.innerHTML = contentHTML;
+
+    // 4. Attach Listeners and Initialize Book Logic (Conditional)
+    if (currentSection === 'digital-library') {
+        initializeBookViewerLogic(); 
+    }
+
+    // 5. Set up Back button
+    modalNavFooter.innerHTML = '<button class="bb-back-button bb-level-button">← Back to Catalogue</button>';
+    document.querySelector('.bb-back-button').onclick = goBack;
+}
+
+// --- 4. INITIALIZATION AND EVENT ATTACHMENT ---
+
+function initializeBeyondSchoolPopups() {
+    // 1. MODAL CLOSE LISTENERS (THE FIX not working )
+    const closeBtn = document.querySelector('.bb-close-btn');
+    if (closeBtn && modal) {
+        closeBtn.onclick = closeModal;
+    }
+    
+    // Close modal on outside click (window.onclick listener)
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+
+    // 2. Attach click listener for ALL ONLINE MODAL TRIGGERS
+const onlineTriggers = document.querySelectorAll('.js-online-trigger'); 
+
+if (onlineTriggers.length > 0) {
+    onlineTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            
+            // *** CRITICAL CHANGE: Get the section key from the data attribute ***
+            const sectionKey = trigger.getAttribute('data-section');
+            
+            // Start the flow by showing level selection
+            showLayer2(sectionKey, 'online'); 
+            
+            // Ensure the context is set correctly for subsequent steps/goBack
+            currentModalContext.section = sectionKey;
+        });
+    });
+}
+
+    // 3. Initialize tab switching logic (The Horizontal Nav)
+    const tabs = document.querySelectorAll('.bb-anchor-nav a');
+    const contentSections = document.querySelectorAll('.bb-content-section');
+
+    function switchBbTab(e) {
+        e.preventDefault(); 
+        const targetTabId = e.currentTarget.getAttribute('data-bb-target');
+
+        tabs.forEach(tab => tab.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+
+        contentSections.forEach(section => {
+            section.style.display = 'none';
+        });
+
+        const targetSection = document.getElementById(targetTabId);
+        if (targetSection) {
+            targetSection.style.display = 'block';
+        }
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', switchBbTab);
+    });
+
+    // Ensure the first tab is visible on load
+    const initialTab = document.querySelector('.bb-anchor-nav a.active');
+    if (initialTab) {
+         const initialTabId = initialTab.getAttribute('data-bb-target');
+         const initialSection = document.getElementById(initialTabId);
+         if (initialSection) {
+             initialSection.style.display = 'block';
+         }
+    }
+
+}
+
+// Call the initialization function when the document is ready
+document.addEventListener('DOMContentLoaded', initializeBeyondSchoolPopups);
+// --- END OF JS pop up BLOCK for beyond school ---
+//beyond school script ends 
 })(jQuery, window)
