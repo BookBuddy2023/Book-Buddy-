@@ -25283,7 +25283,7 @@ tbody tr:nth-child(even) {
     overflow: hidden; 
 }
 
-/* --- BOOK VIEWER BASE STYLES (Stacking and Sizing) --- */
+/* --- BOOK VIEWER BASE STYLES (Stacking and Sizing) --- */ 
 .book-container {
     position: relative;
     width: 100%; 
@@ -25292,9 +25292,9 @@ tbody tr:nth-child(even) {
     height: auto; 
     max-height: 70vh; /* Max height to fit within the viewport */
     overflow: hidden; 
-    background-color: #f7f0e3; 
+    background-color:transparent;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: none !important;
     perspective: 1000px; /* CRITICAL for 3D flip */
 }
 

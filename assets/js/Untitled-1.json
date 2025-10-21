@@ -1,0 +1,19 @@
+{
+    "beginner": {
+        "grades": [
+            {
+                "grade": "1",
+                "worksheets": [
+                    {
+                        "title": "Grade 1 Reading Comprehension Worksheet 1",
+                        "link": "worksasseheetsasse/grade1-rc-worksheet1.html"
+                    },
+                    {
+                        "title": "Grade 1 Reading Comprehension Worksheet 2",
+                        "link": "worksheets/grade1-rc-worksheet2.html"
+                    }
+                ]
+            }
+        ]
+    }
+}
