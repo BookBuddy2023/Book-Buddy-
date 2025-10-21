@@ -1,0 +1,71 @@
+[
+  {
+    "grade": "Grade 1",
+    "entries": [
+      {
+        "title": "The Little Red Hen's New Adventure",
+        "genre": "A classic tale teaching teamwork and perseverance, adapted for young readers.",
+        "link": "path/to/grade1_redhen_assignment.pdf",
+        "icon": "fas fa-file-alt",
+        "buttonText": "Download Worksheet"
+      },
+      {
+        "title": "Leo the Lion Cub's First Roar",
+        "genre": "A heartwarming story about courage and finding your voice, perfect for early readers.",
+        "link": "path/to/grade1_leo_quiz.pdf",
+        "icon": "fas fa-question-circle",
+        "buttonText": "Take Quiz"
+      }
+    ]
+  },
+  {
+    "grade": "Grade 2",
+    "entries": [
+      {
+        "title": "The Mystery of the Missing Toy",
+        "genre": "Join Detective Pip as he uses clues to solve a thrilling neighborhood mystery.",
+        "link": "path/to/grade2_mystery_assignment.pdf",
+        "icon": "fas fa-file-alt",
+        "buttonText": "Download Worksheet"
+      },
+      {
+        "title": "The Adventures of Captain Cosmos",
+        "genre": "Blast off into space with Captain Cosmos and learn about planets and stars!",
+        "link": "path/to/grade2_cosmos_quiz.pdf",
+        "icon": "fas fa-question-circle",
+        "buttonText": "Take Quiz"
+      }
+    ]
+  },
+  {
+    "grade": "Grade 3",
+    "entries": [
+      {
+        "title": "Space And Its Wonders",
+        "genre": "Introduction to space and elements of space",
+        "link": "./assets/worksheets/beyondschool-reading-comprehension/grade3/Grade3_RC_SpaceAndItsWonders.pdf",
+        "icon": "fas fa-file-alt",
+        "buttonText": "Download Worksheet"
+      },
+      {
+        "title": "The Amazing Adventure of Droplet Dhandapani",
+        "genre": "This passage will elaborate on how a droplet experiences the process of watercycle",
+        "link": "./assets/worksheets/beyondschool-reading-comprehension/grade3/Grade3_RC_TheAmazingAdventureofDropletDhandapani.pdf",
+        "icon": "fas fa-question-circle",
+        "buttonText": "Take Quiz"
+      }
+    ]
+  },
+  {
+    "grade": "Grade 4",
+    "entries": [
+      {
+        "title": "Space And Its Wonders",
+        "genre": "Introduction to space and elements of space",
+        "link": "./assets/worksheets/beyondschool-reading-comprehension/grade3/Grade3_RC_SpaceAndItsWonders.pdf",
+        "icon": "fas fa-file-alt",
+        "buttonText": "Download Worksheet"
+      }
+    ]
+  }
+]

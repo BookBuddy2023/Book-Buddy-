@@ -29,15 +29,15 @@
     border-radius: 8px; /* Matches your wrapper's border-radius for clean look */
 }
     </style>
-    <script async crossorigin="anonymous" 
+   <!-- <script async crossorigin="anonymous" 
       data-clerk-publishable-key="pk_test_cmVndWxhci10cm9sbC0yNi5jbGVyay5hY2NvdW50cy5kZXYk"
       src="https://regular-troll-26.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js">
-  </script>
+  </script> -->
 </head>
 
 <body>
 
-<div class="header" style="background-color: #f8f9fa; padding: 1.5rem; border-bottom: 1px solid #e2e6ea; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+<!-- <div class="header" style="background-color: #f8f9fa; padding: 1.5rem; border-bottom: 1px solid #e2e6ea; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
   <div class="d-flex justify-content-between align-items-center" style="display: flex; justify-content: space-between; align-items: center;">
     <div class="logo" style="font-size: 1.5rem; font-weight: bold; color: #333;">Book Buddy Logo</div>
     <div id="user-info" class="user-info" style="display: none; align-items: center;">
@@ -48,7 +48,7 @@
       </button>
     </div>
   </div>
-</div>
+</div> -->
 
 <!--old header format
  Header with user info 
@@ -93,6 +93,19 @@
                                             </svg>
                                         </a>
                                     </li>
+                                    <!-- <div> 
+                                    <li id="user-info">
+                                        <span class="text-white">
+                                            Welcome <span id="user-name"></span>
+                                             <img id="user-avatar" class="user-avatar" src="" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); margin-right: 0.75rem;">
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <button id="sign-out-btn" class="btn text-white ms-2 fs-3">
+                                            <i class="fas fa-sign-out-alt me-1 fs-2" style="margin-right: 0.25rem;"></i>Sign Out
+                                        </button>
+                                    </li>
+                                    </div> -->
                                     <!-- commented for linkedin link-->
                                     <!--<li>
                                         <a href="#">
@@ -107,10 +120,9 @@
                                         <a href="#">
                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M9 0.25C6.9714 0.263815 5.01064 0.982071 3.45313 2.2819C1.89562 3.58172 0.838154 5.38235 0.461624 7.37574C0.085095 9.36913 0.412903 11.4314 1.38897 13.2098C2.36504 14.9882 3.92871 16.3722 5.8125 17.125C5.68589 16.2965 5.68589 15.4535 5.8125 14.625L6.84375 10.25C6.68055 9.85378 6.59974 9.42847 6.60625 9C6.60625 7.7875 7.3125 6.875 8.1875 6.875C8.34601 6.87262 8.50317 6.90452 8.6482 6.96853C8.79323 7.03255 8.92272 7.12715 9.02778 7.24587C9.13284 7.36458 9.21101 7.50461 9.25691 7.65635C9.30282 7.80808 9.31538 7.96795 9.29375 8.125C9.29375 8.875 8.81875 10 8.56875 11.0375C8.51494 11.231 8.50854 11.4346 8.5501 11.6311C8.59165 11.8275 8.67993 12.0111 8.80747 12.1662C8.93501 12.3214 9.09805 12.4435 9.28278 12.5223C9.46752 12.601 9.66851 12.6341 9.86875 12.6188C11.4187 12.6188 12.6187 10.975 12.6187 8.6125C12.6343 8.13243 12.5497 7.65438 12.3702 7.20885C12.1907 6.76331 11.9203 6.36009 11.5763 6.02488C11.2323 5.68968 10.8222 5.42987 10.3721 5.26201C9.92209 5.09416 9.442 5.02195 8.9625 5.05C8.45056 5.02801 7.93948 5.11013 7.4602 5.29139C6.98092 5.47264 6.5434 5.74927 6.17412 6.10452C5.80485 6.45977 5.5115 6.88626 5.31184 7.35817C5.11217 7.83008 5.01033 8.33759 5.0125 8.85C5.00555 9.56384 5.22429 10.2616 5.6375 10.8438C5.66754 10.8771 5.68895 10.9174 5.69984 10.961C5.71074 11.0046 5.71079 11.0501 5.7 11.0938C5.63125 11.3688 5.48125 11.9688 5.45625 12.0875C5.43125 12.2063 5.325 12.2812 5.1625 12.2062C4.06875 11.6937 3.3875 10.1 3.3875 8.8125C3.3875 6.05625 5.39375 3.51875 9.16875 3.51875C12.2 3.51875 14.5625 5.68125 14.5625 8.575C14.5625 11.5875 12.6875 14.0125 10.0187 14.0125C9.62751 14.0261 9.23907 13.9418 8.8887 13.7671C8.53834 13.5925 8.23715 13.3331 8.0125 13.0125L7.46875 15.0938C7.20809 15.9026 6.84247 16.6738 6.38125 17.3875C7.23111 17.6387 8.11386 17.7609 9 17.75C11.3206 17.75 13.5462 16.8281 15.1872 15.1872C16.8281 13.5462 17.75 11.3206 17.75 9C17.75 6.67936 16.8281 4.45376 15.1872 2.81282C13.5462 1.17187 11.3206 0.25 9 0.25" fill="#FFD335" />
-                                                <path d="M9 0.25C6.9714 0.263815 5.01064 0.982071 3.45313 2.2819C1.89562 3.58172 0.838154 5.38235 0.461624 7.37574C0.085095 9.36913 0.412903 11.4314 1.38897 13.2098C2.36504 14.9882 3.92871 16.3722 5.8125 17.125C5.68589 16.2965 5.68589 15.4535 5.8125 14.625L6.84375 10.25C6.68055 9.85378 6.59974 9.42847 6.60625 9C6.60625 7.7875 7.3125 6.875 8.1875 6.875C8.34601 6.87262 8.50317 6.90452 8.6482 6.96853C8.79323 7.03255 8.92272 7.12715 9.02778 7.24587C9.13284 7.36458 9.21101 7.50461 9.25691 7.65635C9.30282 7.80808 9.31538 7.96795 9.29375 8.125C9.29375 8.875 8.81875 10 8.56875 11.0375C8.51494 11.231 8.50854 11.4346 8.5501 11.6311C8.59165 11.8275 8.67993 12.0111 8.80747 12.1662C8.93501 12.3214 9.09805 12.4435 9.28278 12.5223C9.46752 12.601 9.66851 12.6341 9.86875 12.6188C11.4187 12.6188 12.6187 10.975 12.6187 8.6125C12.6343 8.13243 12.5497 7.65438 12.3702 7.20885C12.1907 6.76331 11.9203 6.36009 11.5763 6.02488C11.2323 5.68968 10.8222 5.42987 10.3721 5.26201C9.92209 5.09416 9.442 5.02195 8.9625 5.05C8.45056 5.02801 7.93948 5.11013 7.4602 5.29139C6.98092 5.47264 6.5434 5.74927 6.17412 6.10452C5.80485 6.45977 5.5115 6.88626 5.31184 7.35817C5.11217 7.83008 5.01033 8.33759 5.0125 8.85C5.00555 9.56384 5.22429 10.2616 5.6375 10.8438C5.66754 10.8771 5.68895 10.9174 5.69984 10.961C5.71074 11.0046 5.71079 11.0501 5.7 11.0938C5.63125 11.3688 5.48125 11.9688 5.45625 12.0875C5.43125 12.2063 5.325 12.2812 5.1625 12.2062C4.06875 11.6937 3.3875 10.1 3.3875 8.8125C3.3875 6.05625 5.39375 3.51875 9.16875 3.51875C12.2 3.51875 14.5625 5.68125 14.5625 8.575C14.5625 11.5875 12.6875 14.0125 10.0187 14.0125C9.62751 14.0261 9.23907 13.9418 8.8887 13.7671C8.53834 13.5925 8.23715 13.3331 8.0125 13.0125L7.46875 15.0938C7.20809 15.9026 6.84247 16.6738 6.38125 17.3875C7.23111 17.6387 8.11386 17.7609 9 17.75C11.3206 17.75 13.5462 16.8281 15.1872 15.1872C16.8281 13.5462 17.75 11.3206 17.75 9C17.75 6.67936 16.8281 4.45376 15.1872 2.81282C13.5462 1.17187 11.3206 0.25 9 0.25" fill="white" />
                                             </svg>
                                         </a>
-                                    </li> -->
+                                    </li>-->
                                     <!-- commented for youtube link-->
                                     <!--<li>
                                         <a href="#">
@@ -131,7 +143,7 @@
             <div class="container">
                 <div class="header-one-wrapper">
                     <div class="left-side-header">
-                        <a href="index-two.html" class="logo-area">
+                        <a href="index.html" class="logo-area">
                             <img src="assets/images/logo/bookbuddy logo.JPG" alt="logo" width="60px" height="60px">
                         </a>
                     </div>
@@ -148,7 +160,7 @@
                                         <li><a href="membership-plans.html">Membership & Plans</a></li>
                                         <li><a href="new-arrivals.html">New Arrivals</a></li>                                      
                                         <li><a href="recommend-book.html">Recommend a Book</a></li>
-                                        <li><a href="program-details.html">How to Borrow</a></li>
+                                        <li><a href="how-to-borrow.html">How to Borrow</a></li>
                                         <li><a href="faqs.html">FAQS</a></li>
                                     </ul>
                                 </li>
@@ -620,6 +632,7 @@ We ignite curiosity and critical thinking, fostering a lifelong journey where de
     <!-- footer call to action area start -->
     <div class="rts-footer-area section-bg2">
         <div class="container">
+            <!-- commented subscription form for future use
             <div class="footer-top">
                 <form action="#">
                     <h3 class="form-title">Don’t Miss Awesome Stories From us</h3>
@@ -628,7 +641,7 @@ We ignite curiosity and critical thinking, fostering a lifelong journey where de
                         <button type="submit" class="rts-btn btn-primary border-radius">Subscribe</button>
                     </div>
                 </form>
-            </div>
+            </div> -->
             <div class="row ptb--65">
                 <div class="col-lg-12">
                     <!-- footer main wrapper -->
@@ -646,7 +659,7 @@ We ignite curiosity and critical thinking, fostering a lifelong journey where de
                                     of all backgrounds.
                                 </p>
                                 <ul class="wrapper-list">
-                                    <li><i class="fa-regular fa-location-dot"></i>No 1 Thiruvallur Street Gandhi Nagar Vadapalani Chennai 600093 </li>
+                                    <li><i class="fa-regular fa-location-dot"></i>No 1 Thiruvalluvar Street Gandhi Nagar Saligramam Chennai 600093 </li>
                                     <li><i class="fa-regular fa-phone"></i><a href="tel:+4733378901">+91 9080759312</a></li>
                                 </ul>
                             </div>
@@ -703,7 +716,7 @@ We ignite curiosity and critical thinking, fostering a lifelong journey where de
                                     <li class="post-area">
                                         <div class="image">
                                             <a href="#">
-                                                <img src="assets/images/blog/blog-08.jpg" width="80" alt="">
+                                                <img src="assets/images/blog/blog-07.jpg" width="80" alt="">
                                             </a>
                                         </div>
                                         <div class="content">

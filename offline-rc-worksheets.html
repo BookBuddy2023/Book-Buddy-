@@ -106,7 +106,7 @@
                                         <li><a href="membership-plans.html">Membership & Plans</a></li>
                                         <li><a href="new-arrivals.html">New Arrivals</a></li>                                      
                                         <li><a href="recommend-book.html">Recommend a Book</a></li>
-                                        <li><a href="program-details.html">How to Borrow</a></li>
+                                        <li><a href="how-to-borrow.html">How to Borrow</a></li>
                                         <li><a href="faqs.html">FAQS</a></li>
                                     </ul>
                                 </li>
@@ -188,110 +188,59 @@
         </h3>
         <div class="bb-nav-container">
         <div class="bb-anchor-nav">
-            <a href="#" data-bb-target="bb-communication" class="active">Beginner</a>
-            <a href="#" data-bb-target="bb-math">Novice</a>
+            <a href="#" data-bb-target="bb-communication" class="active">Novice</a>
+            <a href="#" data-bb-target="bb-math">Beginner</a>
             <a href="#" data-bb-target="bb-stories">Intermediate</a>
             <a href="#" data-bb-target="bb-future">Advanced</a>
         </div>
     </div>
 
         <div class="table-responsive">
-            <table class="table table-bordered table-hover align-middle">
-                <thead class="table-light"> <!-- Changed to table-light for default Bootstrap header -->
+            <table class="table table-bordered table-hover align-middle" id="worksheets-table">
+                <thead class="table-light">
                     <tr>
                         <th scope="col" class="text-center">Reader Level</th>
-                        <th scope="col" class="text-center"> Title</th>
+                        <th scope="col" class="text-center">Title</th>
                         <th scope="col" class="text-center">Genre</th>
                         <th scope="col" class="text-center">Download</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- Novice Examples -->
-                    <tr>
-                        <th scope="row" class="text-center align-middle" rowspan="2">Grade 1</th>
-                        <td>The Little Red Hen's New Adventure</td>
-                        <td>A classic tale teaching teamwork and perseverance, adapted for young readers.</td>
-                        <td class="text-center">
-                            <a href="path/to/grade1_redhen_assignment.pdf" download class="btn btn-outline-primary btn-sm-custom"> <!-- Using Bootstrap's btn-outline-primary -->
-                                <i class="fas fa-file-alt me-1"></i>Download Worksheet
-                            </a>
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                        <td class="border-top-0">Leo the Lion Cub's First Roar</td>
-                        <td class="border-top-0">A heartwarming story about courage and finding your voice, perfect for early readers.</td>
-                        <td class="text-center border-top-0">
-                            <a href="path/to/grade1_leo_quiz.pdf" download class="btn btn-outline-primary btn-sm-custom">
-                                <i class="fas fa-question-circle me-1"></i>Take Quiz
-                            </a>
-                        </td>
-                    </tr>
-                    <!-- Reading Level Novice end -->
-                    <!-- Reading Level Beginner starts-->
-                    <tr>
-                        <th scope="row" class="text-center align-middle" rowspan="2">Grade 2</th>
-                        <td>The Mystery of the Missing Toy</td>
-                        <td>Join Detective Pip as he uses clues to solve a thrilling neighborhood mystery.</td>
-                        <td class="text-center">
-                            <a href="path/to/grade2_mystery_assignment.pdf" download class="btn btn-outline-primary btn-sm-custom">
-                                <i class="fas fa-file-alt me-1"></i>Download Worksheet
-                            </a>
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                        <td class="border-top-0">The Adventures of Captain Cosmos</td>
-                        <td class="border-top-0">Blast off into space with Captain Cosmos and learn about planets and stars!</td>
-                        <td class="text-center border-top-0">
-                            <a href="path/to/grade2_cosmos_quiz.pdf" download class="btn btn-outline-primary btn-sm-custom">
-                                <i class="fas fa-question-circle me-1"></i>Take Quiz
-                            </a>
-                        </td>
-                        
-                    </tr>
-  <!-- Reading Level Beginner ends-->
-                      <!-- Reading Level Intermediate starts-->
-                    <tr>
-                        <th scope="row" class="text-center align-middle" rowspan="2">Grade 3</th>
-                        <td>Space And Its Wonders</td>
-                        <td>Introduction to space and elements of space</td>
-                        <td class="text-center">
-                            <a href="./assets/worksheets/beyondschool-reading-comprehension/grade3/Grade3_RC_SpaceAndItsWonders.pdf" download class="btn btn-outline-primary btn-sm-custom">
-                                <i class="fas fa-file-alt me-1"></i>Download Worksheet
-                            </a>
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                        <td class="border-top-0">The Amazing Adventure of Droplet Dhandapani</td>
-                        <td class="border-top-0">This passage will elaborate on how a droplet experiences the process of watercycle</td>
-                        <td class="text-center border-top-0">
-                            <a href="./assets/worksheets/beyondschool-reading-comprehension/grade3/Grade3_RC_TheAmazingAdventureofDropletDhandapani.pdf" download class="btn btn-outline-primary btn-sm-custom">
-                                <i class="fas fa-question-circle me-1"></i>Take Quiz
-                            </a>
-                        </td>
-                    </tr>
-                      <!-- Reading Level Intermediate ends-->
-                       <!-- Reading Level Advanced starts-->
-<tr>
-                        <th scope="row" class="text-center align-middle" rowspan="2">Grade 4</th>
-                        <td>Space And Its Wonders</td>
-                        <td>Introduction to space and elements of space</td>
-                        <td class="text-center">
-                            <a href="./assets/worksheets/beyondschool-reading-comprehension/grade3/Grade3_RC_SpaceAndItsWonders.pdf" download class="btn btn-outline-primary btn-sm-custom">
-                                <i class="fas fa-file-alt me-1"></i>Download Worksheet
-                            </a>
-                        </td>
-                        
-                    </tr>
-                     <!-- Reading Level Advanced ends-->
-                    
-                    <!-- ... Continue adding rows for Grade 4, 5, 6, 7, 8, and Above -->
-                    <!-- Remember to use rowspan for the Grade Level column if multiple entries per grade -->
-                    <!-- For "Grade 8 and Above," you can create a single category -->
+                <tbody id="worksheets-tbody">
+                    <!-- Dynamic content -->
                 </tbody>
             </table>
+            <script>
+            fetch('data/worksheets.json')
+              .then(response => response.json())
+              .then(data => {
+                const tbody = document.getElementById('worksheets-tbody');
+                tbody.innerHTML = '';
+                data.forEach(level => {
+                  level.entries.forEach((entry, idx) => {
+                    const tr = document.createElement('tr');
+                    if (idx === 0) {
+                      const th = document.createElement('th');
+                      th.scope = 'row';
+                      th.className = 'text-center align-middle';
+                      th.rowSpan = level.entries.length;
+                      th.textContent = level.grade;
+                      tr.appendChild(th);
+                    }
+                    const tdTitle = document.createElement('td');
+                    tdTitle.textContent = entry.title;
+                    tr.appendChild(tdTitle);
+                    const tdGenre = document.createElement('td');
+                    tdGenre.textContent = entry.genre;
+                    tr.appendChild(tdGenre);
+                    const tdDownload = document.createElement('td');
+                    tdDownload.className = 'text-center';
+                    tdDownload.innerHTML = `<a href="${entry.link}" download class="btn btn-outline-primary btn-sm-custom"><i class="${entry.icon} me-1"></i>${entry.buttonText}</a>`;
+                    tr.appendChild(tdDownload);
+                    tbody.appendChild(tr);
+                  });
+                });
+              });
+            </script>
             <div class="col-lg-12">
                     <div class="rts-bookbuddy-pagination">
                         <ul class="justify-content-center">
@@ -313,9 +262,10 @@
 
     <!-- footer call to action area start -->
 
-    <<!-- footer call to action area start -->
+    <!-- footer call to action area start -->
     <div class="rts-footer-area section-bg2">
         <div class="container">
+            <!-- commented subscription form for future use
             <div class="footer-top">
                 <form action="#">
                     <h3 class="form-title">Don’t Miss Awesome Stories From us</h3>
@@ -324,7 +274,7 @@
                         <button type="submit" class="rts-btn btn-primary border-radius">Subscribe to Magazines/Newsletter</button>
                     </div>
                 </form>
-            </div>
+            </div> -->
             <div class="row ptb--65">
                 <div class="col-lg-12">
                     <!-- footer main wrapper -->
@@ -342,7 +292,7 @@
                                     of all backgrounds.
                                 </p>
                                 <ul class="wrapper-list">
-                                    <li><i class="fa-regular fa-location-dot"></i>No 1 Thiruvallur Street Gandhi Nagar Vadapalni Chennai </li>
+                                    <li><i class="fa-regular fa-location-dot"></i>No 1 Thiruvalluvar Street Gandhi Nagar Saligramam Chennai </li>
                                     <li><i class="fa-regular fa-phone"></i><a href="tel:+4733378901">+91 9080759312</a></li>
                                 </ul>
                             </div>
