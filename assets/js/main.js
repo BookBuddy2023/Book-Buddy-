@@ -1170,19 +1170,55 @@ const bbContentData = {
                         // ... add all pages for this book ...
                     ]
                 },
-                { 
-                    title: "The Little Red Bus Story", 
-                    author: "B. Author", 
-                    pages: "8", 
-                    content_id: "book-red-bus",
-                    // *** ADD PAGE URLs FOR THE SECOND BOOK ***
+              ],
+                'Beginner': [
+                  {
+                  
+                  title: "The Berry Best Stew", 
+                    author: "Book Buddy", 
+                    pages: "9", 
+                    content_id: "The-Berry-Best-Stew",
+                    // *** ADD THIS NEW ARRAY OF PAGE URLs ***
                     pageUrls: [
-                        "/assets/books/red-bus/cover.jpg",
-                        "/assets/books/red-bus/page_a.jpg",
-                        // ... add all pages for this second book ...
+                        "/assets/digitalBooks/The-Berry-Best-Stew/The-Berry-Best-Stew-cvrpg.jpg",
+                        "/assets/digitalBooks/The-Berry-Best-Stew/The-Berry-Best-Stew-pg1.jpg",
+                        "/assets/digitalBooks/The-Berry-Best-Stew/The-Berry-Best-Stew-pg2.jpg",
+                        "/assets/digitalBooks/The-Berry-Best-Stew/The-Berry-Best-Stew-pg3.jpg",
+                        "/assets/digitalBooks/The-Berry-Best-Stew/The-Berry-Best-Stew-pg4.jpg",         
+                        "/assets/digitalBooks/The-Berry-Best-Stew/The-Berry-Best-Stew-pg5.jpg", 
+                        "/assets/digitalBooks/The-Berry-Best-Stew/The-Berry-Best-Stew-pg6.jpg",
+                        "/assets/digitalBooks/The-Berry-Best-Stew/The-Berry-Best-Stew-pg7.jpg",
+                        "/assets/digitalBooks/The-Berry-Best-Stew/The-Berry-Best-Stew-pg8.jpg",
+                        "/assets/digitalBooks/The-Berry-Best-Stew/The-Berry-Best-Stew-pg9.jpg",
+                        // ... add all pages for this book ...
                     ]
                   },
+                {
+                
+                  title: "The Day Sounds Sparkled", 
+                    author: "Book Buddy", 
+                    pages: "10", 
+                    content_id: "The-Day-Sounds-Sparkled",
+                    // *** ADD THIS NEW ARRAY OF PAGE URLs ***
+                    pageUrls: [
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/The-Day-Sounds-Sparkled-cvrpg.jpg",
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/pg1.jpg",
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/pg2.jpg",
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/pg3.jpg",
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/pg4.jpg",         
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/pg5.jpg", 
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/pg6.jpg",
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/pg7.jpg",
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/pg8.jpg",
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/pg9.jpg",
+                        "/assets/digitalBooks/The-Day-Sounds-Sparkled/pg10.jpg",
+                        // ... add all pages for this book ...
+                    ]
+                  },
+                
+                // ... other Digital Library content ...
             ]
+            // ... more levels ...
             // ... more levels/genres ...
         }
     }
@@ -1309,7 +1345,7 @@ function showLayer3_ContentList(sectionKey, mode, level) {
         // --- BUILD RC QUIZ CARDS (Existing Logic) ---
         cardsHTML = content.map(item => `
             <div class="bb-rc-card bb-card-trigger" data-content-id="${item.content_id}">
-                <img src="${item.img}" alt="${item.title}">
+                 <img src="${item.img}" alt="${item.title}">
                 <h4>${item.title}</h4>
                 <p class="read-time">Avg. Read Time: ${item.time}</p>
             </div>
