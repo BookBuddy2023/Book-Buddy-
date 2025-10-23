@@ -20,6 +20,138 @@
     <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
     <!-- custom style css -->
     <link rel="stylesheet" href="assets/css/style.css">
+<style>
+   /* Card Grid Layout */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 15px auto;
+        }
+
+        /* Individual Card Styling */
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+            /* 🔥 KEY CHANGE: Required for absolute positioning of the player */
+            position: relative; 
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Image Container for consistent 3:4 ratio */
+        .card-image-container {
+            width: 100%;
+            padding-top: 133.33%; /* 4:3 aspect ratio */
+            position: relative;
+            background-color: #e0e0e0;
+        }
+
+        .card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Content Area Styling */
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; 
+        }
+
+        .card-heading {
+            font-size: 1.3em;
+            color: #111111;
+            margin: 0 0 5px 0;
+            line-height: 1.3;
+        }
+
+        .card-metadata {
+            font-size: 0.9em;
+            color: #6a6a6a;
+            margin: 0 0 15px 0;
+        }
+
+        /* LISTEN NOW Button (Spotify Theme) */
+        .listen-now-btn {
+            margin-top: auto; 
+            background-color: #1DB954; 
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s, transform 0.1s;
+            font-size: 0.9em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .listen-now-btn:hover {
+            background-color: #1ed760;
+        }
+
+        /* -------------------------------------- */
+        /* --- In-Card Player Styles (KEY CHANGES) --- */
+        /* -------------------------------------- */
+
+        /* Class for the dynamically inserted player wrapper */
+        .player-overlay {
+            /* 🔥 Positions the player over the content */
+            position: absolute; 
+            bottom: 0; 
+            left: 0;
+            width: 100%;
+            z-index: 5; /* Ensure it's above normal card content */
+            
+            /* Visual styling for the overlay container */
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Close Button Styling */
+        #close-player-btn {
+            position: absolute;
+            /* Position relative to the overlay */
+            top: 0px; 
+            right: 0px; 
+            z-index: 10; 
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 0 0 0 8px; /* Rounded corner opposite the card corner */
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .player-overlay iframe {
+            display: block;
+        }
+</style>
 </head>
 
 <body>
@@ -182,9 +314,118 @@
     </div>
     <!-- bread crumb area end -->
 
-<div>
-        <img src="assets/images/banner/coming soon" alt="Coming Soon" width="100%" height="auto">
-    </div>
+<div class="card-grid">
+
+        <div class="card" id="card-1">
+            <div class="card-image-container">
+                <img src="assets/images/podcasts images/bear and the bees.jfif" alt="The Bear and the Bees" class="card-image">
+            </div>
+            <div class="card-content">
+                <h3 class="card-heading">The Bear and the Bees</h3>
+                <p class="card-metadata">Ella Richardson</p>
+                
+                <button class="listen-now-btn" 
+                        data-spotify-uri="spotify:episode:0yBONXZsTreacXEAq0Kfm2?">
+                    LISTEN NOW
+                </button>
+                </div>
+        </div>
+
+        <div class="card" id="card-2">
+            <div class="card-image-container">
+                <img src="assets/images/podcasts images/uma vs upma.jfif" alt="Uma Vs Upma" class="card-image">
+            </div>
+            <div class="card-content">
+                <h3 class="card-heading">Uma vs Upma</h3>
+                <p class="card-metadata">Meera Ganapathi</p>
+                
+                <button class="listen-now-btn" 
+                        data-spotify-uri="spotify:episode:0czevIB52AUz0DRTDLRKfB?">
+                    LISTEN NOW
+                </button>
+            </div>
+        </div>
+
+        <div class="card" id="card-3">
+            <div class="card-image-container">
+                <img src="assets/images/podcasts images/big bad fight.jfif" alt="Big Bad Fight" class="card-image">
+            </div>
+            <div class="card-content">
+                <h3 class="card-heading">Big Bad Fight</h3>
+                <p class="card-metadata">Yamini Vijayan</p>
+                
+                <button class="listen-now-btn" 
+                        data-spotify-uri="spotify:episode:2GwFb93qHhwXI8USEIngE0?">
+                    LISTEN NOW
+                </button>
+            </div>
+        </div>
+        
+    </div> 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const listenButtons = document.querySelectorAll('.listen-now-btn');
+
+            // Function to remove all existing player overlays (only one should be open at a time)
+            function removeAllExistingPlayers() {
+                document.querySelectorAll('.player-overlay').forEach(player => player.remove());
+            }
+
+            listenButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const spotifyUri = event.currentTarget.getAttribute('data-spotify-uri');
+                    const clickedCard = event.currentTarget.closest('.card'); // The card we are targeting
+
+                    if (spotifyUri && clickedCard) {
+                        
+                        // 1. Remove any currently open player from ANY card
+                        removeAllExistingPlayers(); 
+
+                        // Player dimensions and URL construction
+                        const COMPACT_HEIGHT = '80'; 
+                        
+                        // Using view=compact to hide album art
+                        const embedUrl = `https://open.spotify.com/embed/?uri=${spotifyUri}&theme=0&view=compact&t=0`; 
+
+                        // --- 2. Build the new dynamic player overlay structure ---
+                        
+                        const playerOverlay = document.createElement('div');
+                        // 🔥 Use the new class for the absolute positioning inside the card
+                        playerOverlay.classList.add('player-overlay'); 
+
+                        const closeButton = document.createElement('button');
+                        closeButton.id = 'close-player-btn';
+                        closeButton.innerHTML = '✖';
+
+                        const iframe = document.createElement('iframe');
+                        iframe.setAttribute('src', embedUrl);
+                        iframe.setAttribute('width', '100%');
+                        iframe.setAttribute('height', COMPACT_HEIGHT);
+                        iframe.setAttribute('frameborder', '0');
+                        iframe.setAttribute('allowtransparency', 'true');
+                        iframe.setAttribute('allow', 'encrypted-media');
+                        
+                        // Append elements to the overlay
+                        playerOverlay.appendChild(closeButton);
+                        playerOverlay.appendChild(iframe);
+                        
+                        // --- 3. Insert the player inside the clicked card ---
+                        // Appending to the card makes it an absolute child of the relative parent (.card)
+                        clickedCard.appendChild(playerOverlay); 
+                        
+                        // --- 4. Add close functionality to the new button ---
+                        closeButton.addEventListener('click', () => {
+                            playerOverlay.remove(); // Remove the entire overlay element
+                        });
+
+                        // Scroll the card into view (optional)
+                        clickedCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            });
+        });
+    </script>
     <!-- rts blog area start 
     <div class="rts-section-gap rts-blog-area">
         <div class="container pb--130">
